@@ -1,0 +1,19 @@
+-# This file is app/view/users/index.html.haml
+%h1 Todos Users
+
+%table#users
+  %thead
+    %tr
+      %th User
+      %th Email
+      %th telefone
+      %th nusp
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.nome
+        %td= user.email
+        %td= user.telefone
+        %td= user.documento
+
+= link_to 'Criar novo user', new_user_path
