@@ -1,5 +1,6 @@
 -# This file is app/view/users/index.html.haml
 %h1 Todos Users
+= link_to 'Login', login_path
 
 %table#users
   %thead
@@ -11,9 +12,10 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.nome
+        %td= link_to "#{user.nome}", user_path(user.id)
         %td= user.email
         %td= user.telefone
         %td= user.documento
 
 = link_to 'Criar novo user', new_user_path
+

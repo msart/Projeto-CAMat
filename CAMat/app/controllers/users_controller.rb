@@ -7,12 +7,26 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
+  def show
+    id = params[:id]
+    @user = User.find(id)
+  end
 
   def create
   	@user = User.create!(params[:user])
   	flash[:notice] = "User criado com sucesso."
   	redirect_to users_path
+  end
+
+  def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+    @user = User.find params[:id]
+    @user.update_attributes!(params[:user])
+    flash[:notice] = "#{@user.nome} was successfully updated."
+    redirect_to user_path(@user)
   end
 
 	private 
