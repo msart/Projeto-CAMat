@@ -1,6 +1,14 @@
 CAMat::Application.routes.draw do
+  get "users/edit"
+
+  get "users/show"
+
+  get    'signup'  => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   resources :users
-  root :to => redirect('/users/new')
+  root :to => 'session#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
