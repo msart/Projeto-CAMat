@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  def new
+  before_filter :authorize, except: [:new, :create]
 
+  def new
   end
 
   def index
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   	flash[:notice] = "User criado com sucesso."
   	redirect_to users_path
   end
+  before_filter :correct_user?, only: [:edit, :update, :destroy]
 
   def edit
     @user = User.find params[:id]
@@ -27,6 +29,13 @@ class UsersController < ApplicationController
     @user.update_attributes!(params[:user])
     flash[:notice] = "#{@user.nome} was successfully updated."
     redirect_to user_path(@user)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    sign_out 
+    redirect_to login_path
   end
 
 	private 
