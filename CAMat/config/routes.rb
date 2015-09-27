@@ -1,4 +1,6 @@
 CAMat::Application.routes.draw do
+  get "locker/index"
+
   get "users/edit"
 
   get "users/show"
@@ -8,7 +10,7 @@ CAMat::Application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
-  root :to => 'session#new'
+  #root :to => 'session#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
