@@ -1,0 +1,10 @@
+%table#users
+  %thead
+    %tr
+      %th Armario
+      %th Usuario
+  %tbody
+    - @lockers.each do |locker|
+      %tr
+        %td= locker.number
+        %td= locker.owner
