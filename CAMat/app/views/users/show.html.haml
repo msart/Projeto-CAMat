@@ -1,4 +1,4 @@
-%h2 #{@user.nome}
+%h2 Mostrando Usuário: #{@user.nome}
 
 %ul#details
   %li
@@ -8,12 +8,12 @@
     Telefone:
     = @user.telefone
   %li
-    Nusp:
+    Número USP:
     = @user.documento
   -if current_user == @user
-    = link_to 'Edit', edit_user_path(@user)
-    = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
+    = link_to 'Editar', edit_user_path(@user)
+    = button_to 'Deletar', user_path(@user), :method => :delete, :confirm => 'Deletar Usuário?'
     = link_to 'Logout', logout_path, method: :delete
-    = link_to 'Usuários', users_path
+    = link_to 'Índice de Usuários', users_path
   -else
     = link_to 'Login', login_path
