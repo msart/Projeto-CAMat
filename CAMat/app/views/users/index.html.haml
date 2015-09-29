@@ -1,5 +1,5 @@
 -# This file is app/view/users/index.html.haml
-%h1 Todos Users
+%h1 Índice de Usuários
 -if logged_in?
   = link_to 'Logout', logout_path, method: :delete
 -else
@@ -9,10 +9,10 @@
 %table#users
   %thead
     %tr
-      %th User
+      %th Usuário
       %th Email
-      %th telefone
-      %th nusp
+      %th Telefone
+      %th Número USP
   %tbody
     - @users.each do |user|
       %tr

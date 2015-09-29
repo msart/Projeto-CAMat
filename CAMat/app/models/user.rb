@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
 
   validates :telefone, presence: true
 
-  has_secure_password 
+  has_secure_password
+  
+  def locker
+     Account.find(user: self.nome).locker
+  end
 end
