@@ -1,0 +1,18 @@
+%h1 Disponibilidade de Armários
+-if logged_in?
+  = link_to 'Logout', logout_path, method: :delete
+-else
+  = link_to 'Login', login_path
+
+
+%table#users
+  %thead
+    %tr
+      %th Armário
+      %th Disponibilidade
+      %th Preço
+  %tbody
+    - @lockers.each do |code, occupation|
+      %tr
+        %td= link_to "#{code}", accounts_path(user: current_user, locker: code, expire_date: @time), method: :post
+        %td= occupation
