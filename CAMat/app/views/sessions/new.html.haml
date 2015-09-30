@@ -1,11 +1,11 @@
-%h1 Login
+%h1 Nova Sessão
 
 =form_tag login_path :method => :post do
   = label :session, :email, "Email"
   = text_field :session, :email
 
-  = label :session, :password
+  = label :session, :password, "Senha"
   = password_field :session, :password
 
-  = submit_tag 'Logar'
-  = link_to 'Criar novo user', new_user_path
+  = submit_tag 'Mostrar Usuário'
+  = link_to 'Novo Usuário', new_user_path
