@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150927063259) do
+ActiveRecord::Schema.define(:version => 20150929135725) do
 
   create_table "lockers", :force => true do |t|
     t.string   "number"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20150927063259) do
     t.string   "password_digest"
     t.string   "documento"
     t.string   "telefone"
+    t.boolean  "admin"
   end
 
   add_index "users", ["documento"], :name => "index_users_on_documento", :unique => true
