@@ -11,23 +11,14 @@
     Número USP:
     = @user.documento
   %li
-<<<<<<< HEAD
-    Admin:
-    = @user.admin
+    Armário:
+    = @user.locker
   -if current_user == @user || is_admin?
     = link_to 'Edit', edit_user_path(@user)
     = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
     = link_to 'Logout', logout_path, method: :delete
     = link_to 'Voltar aos usuários', users_path
-=======
-    Armário:
-  -if current_user == @user
-    = link_to 'Editar', edit_user_path(@user)
-    = button_to 'Deletar', user_path(@user), :method => :delete, :confirm => 'Deletar Usuário?'
-    = link_to 'Logout', logout_path, method: :delete
-    = link_to 'Índice de Usuários', users_path
     = link_to 'Requerir Armário', locker_occupation_path
->>>>>>> 73cdda30ea4ea8737b279635140b9e9d423e0f9f
   -else
     = link_to 'Logout', logout_path, method: :delete
     = link_to 'Voltar aos usuários', users_path

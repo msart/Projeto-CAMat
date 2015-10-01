@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
     Locker.create(owner: 'usuario1', code: 'A1')
     Locker.create(owner: '', code: 'B7')
-    
+    User.create(email: 'admin@camat.com', nome: 'administradorraiz', documento: '1', telefone:'11111', password: '123456', password_confirmation: '123456', admin: true)
