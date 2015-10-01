@@ -18,7 +18,8 @@
     = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
     = link_to 'Logout', logout_path, method: :delete
     = link_to 'Voltar aos usuários', users_path
-    = link_to 'Requerir Armário', locker_occupation_path
+    -if @user.locker == '-'
+      = link_to 'Requerir Armário', locker_occupation_path
   -else
     = link_to 'Logout', logout_path, method: :delete
     = link_to 'Voltar aos usuários', users_path
