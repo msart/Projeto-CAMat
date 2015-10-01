@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.create!(params[:user])
   	flash[:notice] = "User criado com sucesso."
-  	redirect_to users_path
+  	redirect_to login_path
   end
   before_filter :correct_user?, only: [:edit, :update, :destroy]
 
@@ -27,8 +27,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
-    flash[:notice] = "#{@user.nome} was successfully updated."
-    redirect_to user_path(@user)
+    flash[:notice] = "Os dados de #{@user.nome} foi atualizado com suucesso."
+    redirect_to user_path(@user) 
   end
 
   def destroy
