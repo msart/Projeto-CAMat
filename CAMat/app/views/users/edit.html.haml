@@ -20,7 +20,8 @@
   = label :user, :password_confirmation, 'Confirmar nova senha'
   = password_field :user, :password_confirmation
 
-  = label :user, :admin, 'Administrador'
-  = select :user, :admin, [true, false]
+  -if  is_admin?
+    = label :user, :admin, 'Administrador'
+    = select :user, :admin, [true, false]
 
   = submit_tag 'Update User Info'

@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   	  redirect_to login_path
     end
   end
-  before_filter :correct_user?, only: [:edit, :update, :destroy]
+  #before_filter :correct_user?, only: [:edit, :update, :destroy]
 
   def edit
     @user = User.find params[:id]
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
 	private 
 	def user_params 
-		params.require(:user).permit(:nome, :email, :documento, :password, :password_confirmation, :telefone) 
+		params.require(:user).permit(:nome, :email, :documento,  :telefone) 
 	end
 
 end
