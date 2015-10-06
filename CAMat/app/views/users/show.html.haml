@@ -15,12 +15,14 @@
     = @user.locker
   -if current_user == @user || is_admin?
     = link_to 'Edit', edit_user_path(@user)
-    = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
+    = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Você tem certeza?'
     = link_to 'Logout', logout_path, method: :delete
     -if is_admin?
       = link_to 'Voltar aos usuários', users_path
     -if @user.locker == '-'
       = link_to 'Requerir Armário', locker_occupation_path
+    -else
+      = link_to 'Liberar Armário', account_path, :method => :delete, :confirm => 'Você tem certeza?'
   -else
     = link_to 'Logout', logout_path, method: :delete
     -if is_admin?

@@ -1,5 +1,7 @@
 CAMat::Application.routes.draw do
 
+  get "accounts/destroy"
+
   get "users/edit"
 
   get "users/show"
