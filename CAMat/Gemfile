@@ -24,6 +24,10 @@ end
 group :test do
   # Easier test writing
   gem "shoulda-matchers", "~> 2.8.0"
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'faker'
+  gem 'launchy'
 end
 group :development, :test do
 # Test framework
