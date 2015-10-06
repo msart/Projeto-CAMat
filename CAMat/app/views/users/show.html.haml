@@ -17,9 +17,11 @@
     = link_to 'Edit', edit_user_path(@user)
     = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
     = link_to 'Logout', logout_path, method: :delete
-    = link_to 'Voltar aos usuários', users_path
+    -if is_admin?
+      = link_to 'Voltar aos usuários', users_path
     -if @user.locker == '-'
       = link_to 'Requerir Armário', locker_occupation_path
   -else
     = link_to 'Logout', logout_path, method: :delete
-    = link_to 'Voltar aos usuários', users_path
+    -if is_admin?
+      = link_to 'Voltar aos usuários', users_path
