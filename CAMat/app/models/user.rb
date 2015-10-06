@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :nome, :documento, :telefone, :password, :password_confirmation
+  attr_accessible :email, :nome, :documento, :telefone, :password, :password_confirmation, :admin
 
   validates :nome, presence: true, length: { maximum: 50 }
 
@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
   has_secure_password
   
   def locker
-     Account.find(user: self.nome).locker
+     account = Account.find_by_user(nome)
+     if account == nil
+      return '-'
+    else
+      return account.locker
+    end
   end
+  
 end

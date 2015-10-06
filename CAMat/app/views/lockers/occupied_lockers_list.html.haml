@@ -14,5 +14,8 @@
   %tbody
     - @lockers.each do |code, occupation|
       %tr
-        %td= link_to "#{code}", accounts_path(user: current_user, locker: code, expire_date: @time), method: :post
+        -if occupation == 'Livre'
+          %td= link_to "#{code}", accounts_path(user: current_user.nome, locker: code, expire_date: @time), method: :post
+        -else 
+          %td= code
         %td= occupation
