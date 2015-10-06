@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
-  #before_filter :authorize, except: [:new, :create]
+  before_filter :authorize, except: [:new, :create]
 
   def new
   end
 
   def index
-    @users = User.all
+    if User.find_by_id(session[:user_id]).admin?
+      @users = User.all
+    else
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   def show
@@ -38,10 +42,18 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    if @user.locker != '-'
+      Locker.find_by_code(@user.locker).update_attributes! owner: ''
+      Account.find_by_user(@user.nome).destroy
+    end
     @user.destroy
     flash[:notice] = "Usuario apagado."
-    sign_out 
-    redirect_to login_path
+    if session[:user_id] == @user.id
+      sign_out 
+      redirect_to login_path
+    else
+      redirect_to users_path
+    end
   end
 
 	private 

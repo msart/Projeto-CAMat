@@ -22,5 +22,9 @@ class User < ActiveRecord::Base
       return account.locker
     end
   end
-  
+
+  def admin?
+    admin
+  end
+
 end
