@@ -18,6 +18,6 @@ class Locker < ActiveRecord::Base
   end
   
   def self.is_locker_occupied?(locker_code)
-    Locker.find(:all, :code => locker_code).owner != ''
+    Locker.find_by_code(locker_code).owner != ""
   end
 end

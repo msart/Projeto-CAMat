@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :locker do |l|
-    l.owner { Faker::Name.name}
-    l.code { Faker::Base.regexify(/^[A-Z]\d{2}$/)}
+    l.owner {"Pedro Marcondes"}
+    l.code  {"D02"}
   end
 end

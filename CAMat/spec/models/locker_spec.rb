@@ -22,14 +22,27 @@ describe Locker do
     before do
       @locker = FactoryGirl.create(:locker)
     end
-    it "must know if locker is occupied" do #falhou!!
-      expect(Locker).to receive(:is_locker_occupied?).with(@locker.code)
-      @occupation = Locker.is_locker_occupied?(@locker.code)
-      if @locker.owner == ""
-        expect(@occupation).to be false
-      else
-        expect(@occupation).to be true
-      end
+    it "must know if locker is occupied" do
+      occupation = Locker.is_locker_occupied?(@locker.code)
+      expect(occupation).to be true
+    end
+    before do
+      @locker_without_owner = FactoryGirl.create(:locker, owner: "", code: "D10")
+    end
+    it "must know if locker is empty" do
+      occupation = Locker.is_locker_occupied?(@locker_without_owner.code)
+      expect(occupation).to be false
     end
   end
+  
+  describe ".locker_occupation_hash" do
+    before do
+      FactoryGirl.create(:locker)
+      FactoryGirl.create(:locker, owner: "Stefan", code: "C07")
+    end
+    it "must return the hash of all lockers" do
+      expect(Locker.locker_occupation_hash).to eq({"D02"=>"Ocupado", "C07"=>"Ocupado"})
+    end
+  end
+  
 end
