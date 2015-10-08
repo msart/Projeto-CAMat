@@ -17,7 +17,7 @@ class Locker < ActiveRecord::Base
     #TODO: retorna os preços baseando-se no código do armário
   end
   
-  def is_locker_occupied?(locker_code)
-    Locker.find(:all, :code => locker_code).owner != ''
+  def self.is_locker_occupied?(locker_code)
+    Locker.find_by_code(locker_code).owner != ""
   end
 end
