@@ -1,24 +1,16 @@
 FactoryGirl.define do
-  factory :userAdmin do |u|
-    u.nome { Faker::Name.name }
-    u.password{ Faker::Base.bothify}
-    
-    u.email { Faker::Internet.email }
-    u.documento{ Faker::Number.number } 
-    u.telefone { Faker::Number.number }   
 
-    u.admin = TRUE
-  end
-  
-    factory :userNormal do |u|
-    u.nome { Faker::Name.name }
-    u.password{ Faker::Base.bothify}
+  factory :user do |u|
     
-    u.email { Faker::Internet.email }
-    u.documento{ Faker::Number.number } 
-    u.telefone { Faker::Number.number }   
-
-    u.admin = FALSE
+    u.sequence(:nome) { |n| ["Pedro Marcondes", "Felipe Moreira"] [n%2]  }
+    u.password { "abc123"}
+    u.password_confirmation { "abc123"}
+    
+    u.sequence(:email) { |n| "#{n}emailPedro@site.com.br" }
+    u.sequence(:documento){|n| "#{n}8564712" } 
+    u.telefone { "11147820" }   
+    u.sequence(:admin){ |n| [false, true][n%2] }
+    
   end
-  
+
 end
