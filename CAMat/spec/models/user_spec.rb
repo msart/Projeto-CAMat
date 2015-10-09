@@ -4,9 +4,10 @@ describe User do
   
   before :each do
     @user = FactoryGirl.create(:user)
+    @user_not_admin = FactoryGirl.create(:user)
   end
   
-  
+
   it "has a valid factory" do 
       expect(@user).to be_valid
   end
@@ -29,21 +30,21 @@ describe User do
   it "is invalid without a password" do
     @user.password.present?
   end
+  
+  
+  describe "admin?" do
+    it "must know if the user is a admin or not" do
+      expect( @user.admin? ).to be_truthy 
+      expect( @user_not_admin.admin? ).to be_falsey
+    end
+  end
 
-  it "is a admin" do
-    expect(@user.admin ).to  be_truthy 
+  describe "has locker" do
+    it "must check if the user has a locker or not" do
+      FactoryGirl.create(:locker, owner: "Pedro Marcondes", code: "C07")
+      expect( @user.locker ).present?
+      expect( @user_not_admin.locker ).to eq ("-")
+    end
   end
-  
-=begin  
-  it "is not a admin" do
-    expect(@userAdmin.admin ).to  be_false 
-    expect(@userNormal.documento ).to be_true
-  end
-  
-  it "has locker" do
-    expect(@userAdmin.locker ).to be_nil
-  end
-  
-  it "don't have locker"
-=end
+
 end
