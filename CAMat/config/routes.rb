@@ -1,5 +1,5 @@
 CAMat::Application.routes.draw do
-  root :to => 'session#new'
+  root :to => 'sessions#new'
   get "accounts/destroy"
 
   get "users/edit"
