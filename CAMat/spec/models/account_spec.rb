@@ -1,12 +1,28 @@
 require 'rails_helper'
 
 describe Account do
-  before :each do
-    @account = FactoryGirl.create(:account)
+  shared_examples "all users" do
+  	before do
+    	@account = FactoryGirl.create(:account)
+  	end
+
+	it "has a valid factory"
+		expect(@locker).to be_valid  
+    end
+
+	it "has a user"
+	  	expect(@account.user).to match(/[a-zA-z\s]+/)
+	end
+	  
+	it "has a locker"
+	  	expect(@account.locker).to match(/^[A-Z]\d{2}$/)
+	end
+
+	it "has a expire date"
+	  	expect(@account.expire_date).to match(/^[A-Z]\d{2}$/)
+	end
+
+	#it "can renew its expiration date"
   end
-  it "has a valid factory"
-  it "has a user"
-  it "has a locker"
-  it "has a expire date"
-  it "can renew itsexpiration date"
 end
+

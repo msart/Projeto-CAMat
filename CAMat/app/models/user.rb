@@ -23,8 +23,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def admin?
-    admin
-  end
-
 end

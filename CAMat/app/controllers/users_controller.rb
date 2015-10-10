@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    if User.find_by_id(session[:user_id]).admin?
+    if is_admin?
       @users = User.all
     else
       redirect_to user_path(session[:user_id])
@@ -27,7 +27,9 @@ class UsersController < ApplicationController
   	  redirect_to login_path
     end
   end
-  #before_filter :correct_user?, only: [:edit, :update, :destroy]
+
+  before_filter :correct_user?, only: [:edit, :update, :destroy, :show]
+  before_filter :is_admin?, only: [:edit, :update, :destroy, :show]
 
   def edit
     @user = User.find params[:id]
