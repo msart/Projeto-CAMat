@@ -1,28 +1,26 @@
 require 'rails_helper'
 
 describe Account do
-  shared_examples "all users" do
   	before do
     	@account = FactoryGirl.create(:account)
   	end
 
-	it "has a valid factory"
-		expect(@locker).to be_valid  
+	it "has a valid factory" do
+		expect(@account).to be_valid  
     end
 
-	it "has a user"
+	it "has a user" do 
 	  	expect(@account.user).to match(/[a-zA-z\s]+/)
 	end
 	  
-	it "has a locker"
+	it "has a locker" do
 	  	expect(@account.locker).to match(/^[A-Z]\d{2}$/)
 	end
 
-	it "has a expire date"
-	  	expect(@account.expire_date).to match(/^[A-Z]\d{2}$/)
+	it "has a expire date" do
+	  	expect(@account.expire_date)
 	end
 
 	#it "can renew its expiration date"
-  end
 end
 
