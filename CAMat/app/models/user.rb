@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
   
   def locker
      account = Account.find_by_user(nome)
-     if account == nil
-      return '-'
-    else
+    if account
       return account.locker
+    else
+      return "-"
     end
   end
 
