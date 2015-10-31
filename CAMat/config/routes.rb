@@ -1,10 +1,11 @@
 CAMat::Application.routes.draw do
-  root :to => 'sessions#new'
+  root :to => 'home#index'
+
+  get "home/index"
   get "accounts/destroy"
-
   get "users/edit"
-
   get "users/show"
+  get    'home'    => 'home#index'
   get    'locker_occupation' => 'lockers#occupied_lockers_list'
   get    'lockers' => 'lockers#index'
   get    'signup'  => 'users#new'
@@ -12,7 +13,7 @@ CAMat::Application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users, :accounts
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
