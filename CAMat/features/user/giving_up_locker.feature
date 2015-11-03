@@ -3,8 +3,16 @@ Feature: User fiving up his locker
   As a client
   I want to be able to give up my locker
 
+  Background: user has been add to the database
+    Given the following user exist:
+      | nome    | email             | documento   | telefone  | password  | password_confirmation | admin | 
+      | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | false |
+    Given the following locker exists:
+      | code    | owner   |
+      | z-10    | Cliente |
+    And I am at my home page
+    
   Scenario: While I have a locker
-    Given I am at the my home page
     When I press "Abandonar Armário"
     Then I should see a confirmation windown
     When I press the confirm button

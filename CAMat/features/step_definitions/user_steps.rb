@@ -14,3 +14,14 @@ Given(/^I have a User with nome "(.*?)" and email "(.*?)" and documento "(.*?)" 
   User.create(nome: nome, email: email, documento: documento, telefone: telefone, password: password, password_confirmation: password_confirmation, admin: false)
 end
 
+
+Given (/^the following user exist:$/) do |user_table|
+  user_table.hashes.each do |user|
+    User.create(user)
+  end
+end
+
+Given (/^I am at my home page$/) do 
+  @user = User.where(nome: 'Cliente', email: 'cliente@gmail.com')
+  visit user_path(@user)
+end
