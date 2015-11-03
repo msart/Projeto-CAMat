@@ -6,7 +6,7 @@ Feature: Admin starting raffle subscription period
   Scenario: while outside subscription period
    	Given I am logged as a admin
     And I am at my home page
-    When I press "Começar inscrição para sorteio"
+    When I press "Começar inscrição para sorteio" button
     Then I should be at the "Configuração de Sorteio" page
     When I fill the "Início das inscrições" field with "01/01/2016"
     And I fill the "Fim das incrições" field with "01/02/2016"
