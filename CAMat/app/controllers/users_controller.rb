@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if !@user.valid?
       flash[:notice] = "#{@user.errors.messages}"
       redirect_to new_user_path
-    else
+    else 
   	  flash[:notice] = "User criado com sucesso."
   	  redirect_to login_path
     end

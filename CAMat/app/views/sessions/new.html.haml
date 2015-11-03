@@ -1,4 +1,5 @@
 .m-content
+  = flash[:notice]
   %h1 Nova Sessão
 
   =form_tag login_path :method => :post do

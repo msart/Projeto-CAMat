@@ -1,5 +1,6 @@
 -# in app/views/users/new.html.haml
 .m-content
+    = flash[:notice]
     %h1 Novo Usuário
 
     = form_tag users_path, :method => :post do
