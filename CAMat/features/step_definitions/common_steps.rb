@@ -9,3 +9,7 @@ end
 Then(/^I should see "(.*?)"$/) do |text|
   expect(page).to have_content(text)
 end
+
+When(/^I click the "(.*?)" link$/) do |caption|
+  click_link caption
+end

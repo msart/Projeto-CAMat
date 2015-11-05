@@ -19,12 +19,17 @@ Then(/^I should be at my home page$/) do
   }
 end
 
+Then(/^I should be at the user list page$/) do
+  steps %Q{
+    Then I should see "Índice de Usuários"
+  }
+end
 Then(/^I should not see "(.*?)"$/) do |arg1|
   expect(page).not_to have_content(text)
 end
 
-Given(/^I have a User with nome "(.*?)" and email "(.*?)" and documento "(.*?)" and telefone"(.*?)" and password "(.*?)"/) do |nome, email, documento, telefone, password|
-  User.create(nome: nome, email: email, documento: documento, telefone: telefone, password: password, password_confirmation: password_confirmation, admin: false)
+Given(/^I have a valid User named "(.*?)"$/) do |name|
+  User.create(nome: name, email: "email@mail.com", documento: "1234567", telefone: "12345678", password: "123456", password_confirmation: "123456", admin: false)
 end
 
 Given(/^I have an Admin with nome "(.*?)" and email "(.*?)" and documento "(.*?)" and telefone "(.*?)" and password "(.*?)"$/) do |nome, email, documento, telefone, password|
@@ -39,14 +44,21 @@ Given(/^I am logged in as an Admin$/) do
   fill_in "Email", :with => "admin@camat.com"
   fill_in "Senha", :with => "senhaadmin"
   click_button "Mostrar Usuário"
-  visit user_path(User.find_by_nome("admin"))
+  visit user_path(User.find_by_email("admin@camat.com"))
 end
 
-Given (/^the following user exist:$/) do |user_table|
+Given (/^the following user exists:$/) do |user_table|
   user_table.hashes.each do |user|
     User.create(user)
   end
 end
+
+Given (/^the following locker exists:$/) do |locker_table|
+  locker_table.hashes.each do |locker|
+    Locker.create(locker)
+  end
+end
+
 
 Given (/^I am at my home page$/) do 
   @user = User.where(nome: 'Cliente', email: 'cliente@gmail.com')

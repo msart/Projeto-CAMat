@@ -5,12 +5,14 @@ Feature: Admin editing permission
 
   Scenario: access to user list
    	Given I am logged in as an Admin
-    When I press the "Voltar aos usuários" button
-    Then I should see "Índice de Usuários"
-    #terminar
+    When I click the "Voltar aos usuários" link
+    Then I should be at the user list page
 
   Scenario: editing a generic user
-    Given I have an Admin with nome "Admin" and email "admin@camat.com" and documento "1234" and telefone "1234546" and password "123456"
-    And I have a User with nome "Clientenome" and email "cliente@cliente.com" and documento "1234" and telefone "1234546" and password "123456"
-    #termne
-
+    Given I am logged in as an Admin
+    And I have a valid User named "Cliente" 
+    When I click the "Voltar aos usuários" link
+    Then I should be at the user list page
+    When I click the "Cliente" link
+	And I click the "Edit" link
+	Then I should see "Editar informações"

@@ -4,7 +4,7 @@ Feature: User giving up his locker
   I want to be able to give up my locker
 
   Background: user has been add to the database
-    Given the following user exist:
+    Given the following user exists:
       | nome    | email             | documento   | telefone  | password  | password_confirmation | admin | 
       | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | false |
     Given the following locker exists:
