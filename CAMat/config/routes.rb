@@ -1,4 +1,10 @@
 CAMat::Application.routes.draw do
+  get "raffles/create"
+
+  get "raffles/delete"
+
+  get "raffles/edit"
+
   root :to => 'home#index'
 
   get "home/index"
