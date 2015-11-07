@@ -3,10 +3,14 @@ Feature: Admin starting raffle subscription period
   As a admin user
   I want to be able to open subscription period
 
+  Background: user has been add to the database
+    Given the following user exists:
+      | nome    | email             | documento   | telefone  | password  | password_confirmation | admin | 
+      | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | true  |
+
   Scenario: while outside subscription period
-   	Given I am logged as a admin
-    And I am at my home page
-    When I press "Começar inscrição para sorteio" button
+    Given I am at my home page
+    When I press the "Começar inscrição para sorteio" button
     Then I should be at the "Configuração de Sorteio" page
     When I fill the "Início das inscrições" field with "01/01/2016"
     And I fill the "Fim das incrições" field with "01/02/2016"

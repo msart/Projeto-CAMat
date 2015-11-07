@@ -47,6 +47,7 @@ Given(/^I am logged in as an Admin$/) do
   visit user_path(User.find_by_email("admin@camat.com"))
 end
 
+
 Given (/^the following user exists:$/) do |user_table|
   user_table.hashes.each do |user|
     User.create(user)
