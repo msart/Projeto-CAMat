@@ -23,7 +23,7 @@
       -if @user.locker == '-'
         = link_to 'Requerir Armário', locker_occupation_path
       -else
-        = link_to 'Abandonar Armário', account_path, :method => :delete, :confirm => 'Você tem certeza?'
+        = button_to 'Abandonar Armário', account_path, :method => :delete, :confirm => 'Você tem certeza?'
     -else
       = link_to 'Logout', logout_path, method: :delete
       -if is_admin?

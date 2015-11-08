@@ -24,13 +24,13 @@ Then(/^I should be at the "(.*?)" page$/) do |arg1|
     Then I should see "#{arg1}" 
   }
 end
-
+=begin
 Then(/^I should be at my home page$/) do
   steps %Q{
     Then I should see "Requerir Armario" 
   }
 end
-
+=end
 Then(/^I should be at the user list page$/) do
   steps %Q{
     Then I should see "Índice de Usuários"
@@ -72,6 +72,21 @@ Given (/^the following locker exists:$/) do |locker_table|
   end
 end
 
+Given(/^I am logged in as an User$/) do
+  steps %Q{
+    Given I am at the login page 
+  }
+  fill_in "Email", :with => "cliente@gmail.com"
+  fill_in "Senha", :with => "123456"
+  click_button "Mostrar Usuário"
+  visit user_path(User.find_by_email("cliente@gmail.com"))
+end
+When (/^I accept the confirmation window$/) do
+  page.driver.browser.switch_to.alert.accept
+end
+Given (/^I have a locker$/) do
+  Account.create(user: "Cliente", locker: "z-10")
+end
 
 Given (/^I am at my home page$/) do 
   @user = User.where(nome: 'Cliente', email: 'cliente@gmail.com')

@@ -10,15 +10,14 @@ Feature: User giving up his locker
     Given the following locker exists:
       | code    | owner   |
       | z-10    | Cliente |
-    And I am at my home page
-    
-  Scenario: While I have a locker
-    Given I am at my home page
+    @javascript
+    Scenario: While I have a locker
+  	Given I have a locker
+  	And I am logged in as an User
+  	And I have a locker
     When I press the "Abandonar Armário" button
-    Then I should see a confirmation window
-    When I press the "Sim" button
-    Then I should be at my home page
-    And I should see "Você abandonou seu armário"
+    And I accept the confirmation window
+    And I should see the notice "Você abandonou seu armário"
     And I should see "Armário:-"
 
   Scenario: While I have no locker

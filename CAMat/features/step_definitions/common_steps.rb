@@ -11,5 +11,9 @@ Then(/^I should see "(.*?)"$/) do |text|
 end
 
 When(/^I click the "(.*?)" link$/) do |caption|
-  click_link caption
+  click_link caption, match: :first
+end
+
+Then(/^I should see the notice "(.*?)"$/) do |content|
+  expect(page).to have_selector ".notice", text: content
 end

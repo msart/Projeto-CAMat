@@ -9,12 +9,12 @@ Feature: Admin editing permission
       | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | true |  
 
   Scenario: access to user list
-   	Given I am at my home page
+   	Given I am logged in as an Admin
     When I click the "Voltar aos usuários" link
     Then I should be at the user list page
 
   Scenario: editing a generic user
-    Given I am at my home page
+    Given I am logged in as an Admin
     And I have a valid User named "Cliente" 
     When I click the "Voltar aos usuários" link
     Then I should be at the user list page
