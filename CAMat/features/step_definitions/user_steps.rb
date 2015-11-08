@@ -24,13 +24,13 @@ Then(/^I should be at the "(.*?)" page$/) do |arg1|
     Then I should see "#{arg1}"
   }
 end
-=begin
+
 Then(/^I should be at my home page$/) do
   steps %Q{
-    Then I should see "Requerir Armario"
+    Then I should see "Cliente"
   }
 end
-=end
+
 Then(/^I should be at the user list page$/) do
   steps %Q{
     Then I should see "Índice de Usuários"
@@ -70,6 +70,13 @@ Given (/^the following locker exists:$/) do |locker_table|
   locker_table.hashes.each do |locker|
     Locker.create(locker)
   end
+end
+
+Given (/^I am subscribed to the raffle$/) do
+  steps %Q{
+    Given I am logged in as an User
+    When I press the "Inscrever-me no sorteio" button
+  }
 end
 
 Given(/^I am logged in as an User$/) do

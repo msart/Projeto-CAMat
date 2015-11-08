@@ -1,7 +1,7 @@
 Feature: User signing up for a locker
 	In order to compete for a locker
-  As a user
-  I want to be able to inscript for a raffle
+  As an user
+  I want to be able to subscribe for a raffle
   
   Background: user has been add to the database
     Given the following user exists:
@@ -11,13 +11,13 @@ Feature: User signing up for a locker
       | code    | owner   |
       | z-10    | Cliente |
   
-  Scenario: during inscription period
+  Scenario: during subscription period
     Given I am at my home page
-    When I press the "Inscrever-me" button
+    When I press the "Inscrever-me no sorteio" button
     Then I should be at my home page
     And I should see "Você se inscreveu com sucesso"
     And I should see "Data do sorteio:"
 
-  Scenario: outside inscription period
-    Given I am at my home page
+  Scenario: outside subscription period
+    Given I logged in as an User
     Then I should see "Requerir Armário"
