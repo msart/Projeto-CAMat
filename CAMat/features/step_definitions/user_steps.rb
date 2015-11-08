@@ -13,6 +13,18 @@ Then(/^I should see a confirmation window$/) do
   } 
 end
 
+When(/^I press the confirmation button$/) do
+  steps %Q{
+    Then I press the "Sim" button 
+  } 
+end
+
+Then(/^I should be at the "(.*?)" page$/) do |arg1|
+  steps %Q{
+    Then I should see "#{arg1}" 
+  }
+end
+
 Then(/^I should be at my home page$/) do
   steps %Q{
     Then I should see "Requerir Armario" 

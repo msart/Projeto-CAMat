@@ -12,7 +12,7 @@ Feature: User giving up his/her inscription for the raffle
     Given I am at my home page
     When I press the "Abandonar inscrição" button
     Then I should see a confirmation window
-    When I press the confirm button
+    When I press the confirmation button
     Then I should be at my home page
     And I should see "Você abandonou o sorteio"
     And I should see "Inscrever-me"

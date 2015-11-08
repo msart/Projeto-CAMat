@@ -14,7 +14,7 @@ Feature: Admin starting raffle subscription period
     Then I should be at the "Configuração de Sorteio" page
     When I fill the "Início das inscrições" field with "01/01/2016"
     And I fill the "Fim das incrições" field with "01/02/2016"
-    And I press "Começar Inscrições"
+    And I press the "Começar Inscrições" button
     Then I should see a confirmation window
     When I press the confirmation button
     Then I should be at my home page
