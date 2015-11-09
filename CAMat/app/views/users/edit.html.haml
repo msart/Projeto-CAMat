@@ -1,27 +1,28 @@
-%h1 Editar informações
+.m-content
+  %h1 Editar informações
 
-= form_tag user_path(@user.id), :method => :put do
+  = form_tag user_path(@user.id), :method => :put do
 
-  = label :user, :nome, 'Nome'
-  = text_field :user, :nome
+    = label :user, :nome, 'Nome'
+    = text_field :user, :nome
 
-  = label :user, :email, 'Email'
-  = text_field :user, :email
+    = label :user, :email, 'Email'
+    = text_field :user, :email
 
-  = label :user, :documento, 'Número USP'
-  = text_field :user, :documento
+    = label :user, :documento, 'Número USP'
+    = text_field :user, :documento
 
-  = label :user, :telefone, 'Telefone'
-  = text_field :user, :telefone
+    = label :user, :telefone, 'Telefone'
+    = text_field :user, :telefone
 
-  = label :user, :password, 'Senha'
-  = password_field :user, :password
+    = label :user, :password, 'Senha'
+    = password_field :user, :password
 
-  = label :user, :password_confirmation, 'Confirmar nova senha'
-  = password_field :user, :password_confirmation
+    = label :user, :password_confirmation, 'Confirmar nova senha'
+    = password_field :user, :password_confirmation
 
-  -if  is_admin?
-    = label :user, :admin, 'Administrador'
-    = select :user, :admin, [true, false]
+    -if  is_admin?
+      = label :user, :admin, 'Administrador'
+      = select :user, :admin, [true, false]
 
-  = submit_tag 'Update User Info'
+    = submit_tag 'Update User Info'

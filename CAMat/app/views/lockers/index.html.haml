@@ -1,10 +1,11 @@
-%table#users
-  %thead
-    %tr
-      %th Armario
-      %th Usuario
-  %tbody
-    - @lockers.each do |locker|
+.m-content
+  %table#users
+    %thead
       %tr
-        %td= locker.code
-        %td= locker.owner
+        %th Armario
+        %th Usuario
+    %tbody
+      - @lockers.each do |locker|
+        %tr
+          %td= locker.code
+          %td= locker.owner

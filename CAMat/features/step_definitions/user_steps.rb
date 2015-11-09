@@ -9,25 +9,25 @@ end
 
 Then(/^I should see a confirmation window$/) do
   steps %Q{
-    Then I should see "Esta certo de que quer abandonar seu armario?" 
-  } 
+    Then I should see "Esta certo de que quer abandonar seu armario?"
+  }
 end
 
 When(/^I press the confirmation button$/) do
   steps %Q{
-    Then I press the "Sim" button 
-  } 
+    Then I press the "Sim" button
+  }
 end
 
 Then(/^I should be at the "(.*?)" page$/) do |arg1|
   steps %Q{
-    Then I should see "#{arg1}" 
+    Then I should see "#{arg1}"
   }
 end
 =begin
 Then(/^I should be at my home page$/) do
   steps %Q{
-    Then I should see "Requerir Armario" 
+    Then I should see "Requerir Armario"
   }
 end
 =end
@@ -37,7 +37,7 @@ Then(/^I should be at the user list page$/) do
   }
 end
 Then(/^I should not see "(.*?)"$/) do |arg1|
-  expect(page).not_to have_content(text)
+  page.should_not have_content(arg1)
 end
 
 Given(/^I have a valid User named "(.*?)"$/) do |name|
@@ -51,7 +51,7 @@ end
 Given(/^I am logged in as an Admin$/) do
   steps %Q{
     Given I have an Admin with nome "admin" and email "admin@camat.com" and documento "1212121" and telefone "12121212" and password "senhaadmin"
-    Given I am at the login page 
+    Given I am at the login page
   }
   fill_in "Email", :with => "admin@camat.com"
   fill_in "Senha", :with => "senhaadmin"
@@ -74,7 +74,7 @@ end
 
 Given(/^I am logged in as an User$/) do
   steps %Q{
-    Given I am at the login page 
+    Given I am at the login page
   }
   fill_in "Email", :with => "cliente@gmail.com"
   fill_in "Senha", :with => "123456"
@@ -88,7 +88,7 @@ Given (/^I have a locker$/) do
   Account.create(user: "Cliente", locker: "z-10")
 end
 
-Given (/^I am at my home page$/) do 
+Given (/^I am at my home page$/) do
   @user = User.where(nome: 'Cliente', email: 'cliente@gmail.com')
   visit user_path(@user)
 end

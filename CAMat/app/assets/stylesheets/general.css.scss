@@ -13,7 +13,7 @@ ul {
     margin: 0;
     list-style-type: none;
     li {
-        display: inline;
+        margin-top: 15px;
     }
 }
 
@@ -40,6 +40,7 @@ a {
 
     li {
         padding-left: 4em;
+        display: inline;
     }
 
     ul {
@@ -69,6 +70,7 @@ a {
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     }
     li {
+      display: inline-block;
         margin: 10px;
     }
     li > a {
@@ -76,6 +78,8 @@ a {
         font-weight: 700;
     }
 }
+
+
 
 .btn1>a {
     -webkit-border-radius: 5;
@@ -152,7 +156,6 @@ a {
 }
 
 
-
 /**
  * the sticky footer mixin
  **/
@@ -179,6 +182,54 @@ a {
 }
 
 @include sticky-footer(100px);
+
+// FORMS
+.input-wrap {
+    text-align: center;
+    margin-top: 40px;
+    width: 50%;
+}
+
+label {
+    text-align: right;
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    text-align: right;
+    width: 150px;
+}
+
+.user-options {
+  margin: 25px auto 0 auto;
+  width: 80%;
+
+  a {
+    margin-right: 25px;
+  }
+}
+
+// Tables
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+  height: 50px;
+}
+
+td {
+  padding: 20px;
+}
+
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 

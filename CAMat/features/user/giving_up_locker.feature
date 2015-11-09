@@ -5,7 +5,7 @@ Feature: User giving up his locker
 
   Background: user has been add to the database
     Given the following user exists:
-      | nome    | email             | documento   | telefone  | password  | password_confirmation | admin | 
+      | nome    | email             | documento   | telefone  | password  | password_confirmation | admin |
       | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | false |
     Given the following locker exists:
       | code    | owner   |
@@ -17,10 +17,9 @@ Feature: User giving up his locker
   	And I have a locker
     When I press the "Abandonar Armário" button
     And I accept the confirmation window
-    And I should see the notice "Você abandonou seu armário"
-    And I should see "Armário:-"
+    And I should see "Você abandonou seu armário."
+    And I should see "Armário: -"
 
   Scenario: While I have no locker
     Given I am at my home page
     Then I should not see "Abandonar Armário"
-    

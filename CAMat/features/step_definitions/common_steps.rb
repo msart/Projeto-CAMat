@@ -7,7 +7,7 @@ When(/^I press the "(.*?)" button$/) do |caption|
 end
 
 Then(/^I should see "(.*?)"$/) do |text|
-  expect(page).to have_content(text)
+  page.should have_content(text)
 end
 
 When(/^I click the "(.*?)" link$/) do |caption|
