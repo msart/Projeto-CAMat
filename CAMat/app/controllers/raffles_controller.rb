@@ -4,6 +4,8 @@ class RafflesController < ApplicationController
   end
   #TODO validações
   def create
+    params[:raffle][:start] = Datetime.parse(params[:raffle][:start])
+    params[:raffle][:finish] = Datetime.parse(params[:raffle][:finish])
     @raffle = Raffle.create(params[:raffle])
     if !@raffle.valid?
       flash[:notice] = "#{@raffle.errors.messages}"
