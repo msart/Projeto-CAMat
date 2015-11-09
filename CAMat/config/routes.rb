@@ -1,5 +1,4 @@
 CAMat::Application.routes.draw do
-  get "raffles/create"
 
   get "raffles/delete"
 
@@ -18,7 +17,7 @@ CAMat::Application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users, :accounts
+  resources :users, :accounts, :raffles
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
-    flash[:notice] = "Os dados de #{@user.nome} foi atualizado com sucesso."
+    flash[:notice] = "Os dados de #{@user.nome} foram atualizados com sucesso."
     redirect_to user_path(@user) 
   end
 
