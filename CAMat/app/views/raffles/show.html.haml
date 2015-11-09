@@ -1,0 +1,31 @@
+.m-content
+  = flash[:notice]
+  %h2 #{@user.nome}
+
+  %ul#details
+    %li
+      Início do período de inscrições:
+      = @raffle.start
+    %li
+      Fim do período de inscrições:
+      = @raffle.finish
+  %table#users
+    %thead
+      %tr
+        %th Usuário
+        %th Email
+        %th Telefone
+        %th Número USP
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= link_to "#{user.nome}", user_path(user.id)
+          %td= user.email
+          %td= user.telefone
+          %td= user.documento
+      
+
+.user-options
+  = link_to 'Edit', edit_raffle_path(@raffle)
+  = button_to 'Delete', raffle_path(@raffle), :method => :delete, :confirm => 'Você tem certeza?'
+  = link_to 'Voltar as inscrições atuais',raffle_path
