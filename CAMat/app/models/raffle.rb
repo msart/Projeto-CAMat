@@ -1,6 +1,5 @@
 class Raffle < ActiveRecord::Base
   attr_accessible :finish, :start
-  has_many :users  
 
   def run_raffle
     free_lockers = Locker.locker_occupation_hash.select {|locker, occupation| occupation == "Livre"}

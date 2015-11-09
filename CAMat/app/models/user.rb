@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :nome, :documento, :telefone, :password, :password_confirmation, :admin
-  belongs_to :raffle
 
   validates :nome, presence: true, length: { maximum: 50 }
 
