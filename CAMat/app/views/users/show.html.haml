@@ -24,6 +24,7 @@
     -if is_admin?
       = link_to 'Voltar aos usuários', users_path
       = link_to 'Iniciar período de inscrição', new_raffle_path
+      = link_to 'Sorteios ativos', raffle_path
     -if @user.locker == '-'
       = link_to 'Requerir Armário', locker_occupation_path
     -else

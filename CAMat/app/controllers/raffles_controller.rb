@@ -15,8 +15,30 @@ class RafflesController < ApplicationController
       redirect_to user_path(session[:user_id])
     end
   end
+
+    def index
+    if is_admin?
+      @raffle = Raffle.all
+    else
+      redirect_to user_path(session[:user_id])
+    end
+  end
+
+  before_filter :is_admin?, only: [:edit, :update, :destroy, :show]
+
+  def show
+    id = params[:id]
+    @raffle = Raffle.find(id)
+    @users = @raffle.users
+  end
   
   def delete
+  end
+
+  def destroy
+    @raffle = Raffle.find(params[:id])
+    @raffle.destroy
+    redirect_to raffle_path
   end
 
   def edit

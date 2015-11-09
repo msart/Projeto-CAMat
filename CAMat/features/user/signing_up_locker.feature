@@ -19,5 +19,5 @@ Feature: User signing up for a locker
     And I should see "Data do sorteio:"
 
   Scenario: outside subscription period
-    Given I logged in as an User
+    Given I am logged in as an User
     Then I should see "Requerir Armário"
