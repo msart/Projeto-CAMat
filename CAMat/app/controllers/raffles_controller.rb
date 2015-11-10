@@ -7,15 +7,11 @@ class RafflesController < ApplicationController
     params[:raffle][:start] = DateTime.parse(params[:raffle][:start])
     params[:raffle][:finish] = DateTime.parse(params[:raffle][:finish])
     @raffle = Raffle.create(params[:raffle])
-    if !@raffle.valid?
-      flash[:notice] = "#{@raffle.errors.messages}"
-      redirect_to new_raffle_path
-    else
-      @raffle.delay.run_raffle
-      flash[:notice] = "Sorteio criado com sucesso."
-      redirect_to user_path(session[:user_id])
-    end
+    @raffle.delay.run_raffle
+    flash[:notice] = "Sorteio criado com sucesso."
+    redirect_to user_path(session[:user_id])
   end
+
   def unsubscribe
     user = User.find(session[:user_id])
     user.update_attribute(:raffle_id, nil)
