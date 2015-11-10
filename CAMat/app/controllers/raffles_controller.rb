@@ -2,15 +2,15 @@ class RafflesController < ApplicationController
   def new
     
   end
-  #TODO validações
+  #TODO validações, delay
   def create
-    params[:raffle][:start] = Datetime.parse(params[:raffle][:start])
-    params[:raffle][:finish] = Datetime.parse(params[:raffle][:finish])
+    params[:raffle][:start] = DateTime.parse(params[:raffle][:start])
+    params[:raffle][:finish] = DateTime.parse(params[:raffle][:finish])
     @raffle = Raffle.create(params[:raffle])
     if !@raffle.valid?
       flash[:notice] = "#{@raffle.errors.messages}"
       redirect_to new_raffle_path
-    else 
+    else
       flash[:notice] = "Sorteio criado com sucesso."
       redirect_to user_path(session[:user_id])
     end
