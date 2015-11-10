@@ -3,12 +3,17 @@
   = flash[:warning]
   %h1 Nova Sessão
 
-  =form_tag login_path :method => :post do
-    = label :session, :email, "Email"
-    = text_field :session, :email
+  .input-wrap
+    =form_tag login_path :method => :post do
+      = label :session, :email, "Email"
+      = text_field :session, :email
 
-    = label :session, :password, "Senha"
-    = password_field :session, :password
+      %br
 
-    = submit_tag 'Mostrar Usuário'
-    = link_to 'Novo Usuário', new_user_path
+      = label :session, :password, "Senha"
+      = password_field :session, :password
+
+      %br
+
+      = submit_tag 'Mostrar Usuário'
+      = link_to 'Novo Usuário', new_user_path
