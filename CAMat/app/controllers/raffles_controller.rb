@@ -1,4 +1,3 @@
-#encode utf-8
 class RafflesController < ApplicationController
   def new    
   end
