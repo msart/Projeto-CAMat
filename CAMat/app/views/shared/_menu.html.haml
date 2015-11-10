@@ -4,7 +4,7 @@
         %li
             = link_to 'INÍCIO', home_path
         %li
-            = link_to 'HOME PAGE', users_path(current_user.id)
+            = link_to 'USUÁRIO', users_path(current_user.id)
         %li
             = link_to 'LOGOUT', logout_path, method: :delete
     -else
