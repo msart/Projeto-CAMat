@@ -19,5 +19,5 @@ Feature: Admin editing permission
     When I click the "Voltar aos usuários" link
     Then I should be at the user list page
     When I click the "Cliente" link
-	  And I click the "Edit" link
+	And I click the "Edit" link
   	Then I should see "Editar informações"

@@ -12,11 +12,10 @@ Feature: User signing up for a locker
       | z-10    | Cliente |
   
   Scenario: during subscription period
-    Given I am at my home page
-    When I press the "Inscrever-me no sorteio" button
+    Given I am logged in as an User
+    When I press the "Inscrever-me" button
     Then I should be at my home page
-    And I should see "Você se inscreveu com sucesso"
-    And I should see "Data do sorteio:"
+    And I should see "Voce se inscreveu no sorteio."
 
   Scenario: outside subscription period
     Given I am logged in as an User

@@ -1,16 +1,15 @@
-
 .m-content
   %h1 Editar informações
 
   .input-wrap
     = form_tag raffle_path(@raffle.id), :method => :put do
 
-      = label :raffle, :start, 'Início'
+      = label :raffle, :start, 'Início das Inscrições'
       = text_field :raffle, :start
 
       %br
 
-      = label :raffle, :finish, 'Finish'
+      = label :raffle, :finish, 'Fim das Inscrições'
       = text_field :raffle, :finish
 
       %br

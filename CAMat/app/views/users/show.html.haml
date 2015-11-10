@@ -20,6 +20,10 @@
   -if current_user == @user || is_admin?
     = link_to 'Edit', edit_user_path(@user)
     = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Você tem certeza?'
+    -if is_subscribed?
+      = button_to 'Abandonar Inscrição', unsubscribe_path
+    -else
+      = button_to 'Inscrever-me', subscribe_path
     -if is_admin?
       = link_to 'Voltar aos usuários', users_path
       = link_to 'Iniciar período de inscrição', new_raffle_path

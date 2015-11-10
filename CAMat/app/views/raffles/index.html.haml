@@ -8,7 +8,7 @@
         %th Start
         %th Finish
     %tbody
-      -if @raffles != nil
+      - if @raffles != nil
         - @raffles.each do |raffle|
           %tr
             %td= link_to "#{raffle.start}", raffle_path(raffle.id)

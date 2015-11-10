@@ -75,7 +75,7 @@ end
 Given (/^I am subscribed to the raffle$/) do
   steps %Q{
     Given I am logged in as an User
-    When I press the "Inscrever-me no sorteio" button
+    When I press the "Inscrever-me" button
   }
 end
 
