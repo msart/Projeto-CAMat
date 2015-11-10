@@ -1,6 +1,6 @@
 .m-content
   = flash[:notice]
-  %h2 #{@user.nome}
+  %h2 Detalhes do Sorteio
 
   %ul#details
     %li
@@ -17,13 +17,13 @@
         %th Telefone
         %th Número USP
     %tbody
-      - @users.each do |user|
-        %tr
-          %td= link_to "#{user.nome}", user_path(user.id)
-          %td= user.email
-          %td= user.telefone
-          %td= user.documento
-      
+      - if @users != nil
+        - @users.each do |user|
+          %tr
+            %td= link_to "#{user.nome}", user_path(user.id)
+            %td= user.email
+            %td= user.telefone
+            %td= user.documento
 
 .user-options
   = link_to 'Edit', edit_raffle_path(@raffle)
