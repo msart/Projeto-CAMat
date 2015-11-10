@@ -1,5 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Raffle, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Raffle do
+	shared_examples "all raffles" do
+    	it "has a valid factory" do 
+      		expect(@raffle).to be_valid
+      	end
+    end
+
+    describe "raffle" do
+    	before do
+      		@raffle = FactoryGirl.create(:raffle)
+    	end
+    	include_examples "all raffles"
+  	end
 end
