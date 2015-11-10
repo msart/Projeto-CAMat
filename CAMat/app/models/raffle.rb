@@ -1,9 +1,13 @@
 class Raffle < ActiveRecord::Base
-  attr_accessible :finish, :start
+  attr_accessible :finish, :start, :users
+  has_many :users
 
   def run_raffle
     free_lockers = Locker.locker_occupation_hash.select {|locker, occupation| occupation == "Livre"}
-    subscribed_users = this.users.shuffle
+    this.users.each do |user|
+      subscribed_users << user.nome      
+    end
+    subscribed_users.shuffle!
     free_lockers.each_key do |locker|
       user = subscribed_user.pop
       if (user == nil)

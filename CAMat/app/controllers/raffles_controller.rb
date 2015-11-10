@@ -1,6 +1,5 @@
 class RafflesController < ApplicationController
-  def new
-    
+  def new    
   end
   #TODO validações, delay
   def create
@@ -11,6 +10,7 @@ class RafflesController < ApplicationController
       flash[:notice] = "#{@raffle.errors.messages}"
       redirect_to new_raffle_path
     else
+      @raffle.delay.run_raffle
       flash[:notice] = "Sorteio criado com sucesso."
       redirect_to user_path(session[:user_id])
     end
