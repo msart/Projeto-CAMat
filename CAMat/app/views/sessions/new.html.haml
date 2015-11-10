@@ -1,6 +1,5 @@
 .m-content
   = flash[:notice]
-  = flash[:warning]
   %h1 Nova Sessão
 
   .input-wrap
@@ -13,6 +12,12 @@
       = label :session, :password, "Senha"
       = password_field :session, :password
 
+      %br
+      
+      %span.red
+        = flash[:warning]
+      
+      %br
       %br
 
       = submit_tag 'Mostrar Usuário'

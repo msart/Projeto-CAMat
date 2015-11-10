@@ -18,10 +18,10 @@
           %tr
         -if occupation == 'Livre'
           %td
-            %span{style: "color: #050"}
+            %span.green
               = link_to "#{code}", accounts_path(user: current_user.nome, locker: code, expire_date: @time), method: :post
         -else
           %td
-            %span{style: "color: #900"} 
+            %span.red
               = code
         %td R$00,00
