@@ -5,13 +5,23 @@
     %thead
       %tr
         %th Armário
-        %th Disponibilidade
+        %th Preço
+        %th Armário
+        %th Preço
+        %th Armário
+        %th Preço
+        %th Armário
         %th Preço
     %tbody
       - @lockers.each do |code, occupation|
-        %tr
-          -if occupation == 'Livre'
-            %td= link_to "#{code}", accounts_path(user: current_user.nome, locker: code, expire_date: @time), method: :post
-          -else
-            %td= code
-          %td= occupation
+        -if (code[1]+code[2]).to_i % 4 == 1
+          %tr
+        -if occupation == 'Livre'
+          %td
+            %span.green
+              = link_to "#{code}", accounts_path(user: current_user.nome, locker: code, expire_date: @time), method: :post
+        -else
+          %td
+            %span.red
+              = code
+        %td R$00,00
