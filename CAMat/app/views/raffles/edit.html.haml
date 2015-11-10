@@ -1,2 +1,19 @@
-%h1 Raffles#edit
-%p Find me in app/views/raffles/edit.html.haml
+%h1 Editar Sorteio
+
+.m-content
+  %h1 Editar informações
+
+  .input-wrap
+    = form_tag raffle_path(@raffle.id), :method => :put do
+
+      = label :raffle, :start, 'Início'
+      = text_field :raffle, :start
+
+      %br
+
+      = label :raffle, :finish, 'Finish'
+      = text_field :raffle, :finish
+
+      %br
+
+      = submit_tag 'Atualizar dados do sorteio'
