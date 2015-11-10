@@ -18,7 +18,7 @@ class RafflesController < ApplicationController
 
     def index
     if is_admin?
-      @raffle = Raffle.all
+      @raffles = Raffle.all
     else
       redirect_to user_path(session[:user_id])
     end
