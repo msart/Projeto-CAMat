@@ -6,14 +6,14 @@
   -else
     = link_to 'Login', login_path
 
-
   %table#raffles
     %thead
       %tr
         %th Start
         %th Finish
     %tbody
-      - @raffles.each do |raffle|
-        %tr
-          %td= link_to "#{raffle.start}", raffle_path(raffle.id)
-          %td= raffle.finish
+      -if @raffles != nil
+        - @raffles.each do |raffle|
+          %tr
+            %td= link_to "#{raffle.start}", raffle_path(raffle.id)
+            %td= raffle.finish
