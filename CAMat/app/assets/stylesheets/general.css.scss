@@ -27,6 +27,10 @@ a {
     color: inherit;
 }
 
+input[type="submit"] {
+  padding: 8px 10px 10px 10px;
+  text-align: center;
+}
 .m-menu {
     position: fixed;
     background-color: rgba(black, 0.9);
@@ -198,10 +202,8 @@ label {
   margin-right: 15px;
 }
 
-input[type="submit"] {
-    margin-top: 20px;
-    text-align: right;
-    width: 150px;
+.button-to > div {
+
 }
 
 .user-options {
