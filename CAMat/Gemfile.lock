@@ -167,6 +167,8 @@ GEM
       activesupport (= 3.2.16)
       bundler (~> 1.0)
       railties (= 3.2.16)
+    rails-ajax (1.0.0.20140320)
+      rails (>= 3.2.1)
     railties (3.2.16)
       actionpack (= 3.2.16)
       activesupport (= 3.2.16)
@@ -266,6 +268,7 @@ DEPENDENCIES
   mocha (~> 1.1.0)
   poltergeist (~> 1.6.0)
   rails (= 3.2.16)
+  rails-ajax
   rspec-rails (~> 3.3.2)
   sass-rails (~> 3.2.3)
   selenium-webdriver
@@ -273,3 +276,6 @@ DEPENDENCIES
   sqlite3
   test-unit
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.6

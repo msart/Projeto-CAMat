@@ -1,17 +1,35 @@
-%nav.m-menu
-    %ul
-    -if logged_in?
-        %li
-            = link_to 'INÍCIO', home_path
-        %li
-            = link_to 'USUÁRIO', user_path(current_user.id)
-        %li
-            = link_to 'LOGOUT', logout_path, method: :delete
-    -else
-
-        %li
-            = link_to "INÍCIO", home_path
-        %li
-            = link_to "INSCREVER-SE", new_user_path
-        %li
-            = link_to "ENTRAR", login_path
+%ul
+  %li
+    = link_to 'FEED DE NOTÍCIAS', home_path
+  %li
+    = link_to 'DADOS DO USUÁRIO', user_path(current_user.id)
+  - if current_user == User.find(session[:user_id]) || is_admin?
+    %li
+      = link_to 'EDITAR DADOS', edit_user_path(User.find(session[:user_id]))
+    %li
+      = link_to 'EXCLUIR CONTA', user_path(User.find(session[:user_id])), method: :delete, confirm: 'Você tem certeza?'
+    - if is_admin?
+      %li
+        = link_to 'VOLTAR AOS USUÁRIOS', users_path
+      %li
+        = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', new_raffle_path
+      %li
+        = link_to 'SORTEIOS ATIVOS', raffles_path
+      %li
+        = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    - if User.find(session[:user_id]).locker == '-'
+      %li
+        = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+    - else
+      %li
+      #-  = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'
+    - if is_subscribed?
+      %li
+        = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post
+    - else
+      %li
+        = link_to 'INSCREVER-SE', subscribe_path, method: :post
+  - else
+    - if is_admin?
+      %li
+        = link_to 'VOLTAR AOS USUÁRIOS', users_path

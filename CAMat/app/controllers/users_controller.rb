@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.errors.messages}"
       redirect_to new_user_path
     else 
-  	  flash[:notice] = "User criado com sucesso."
+  	  flash[:notice] = "Usuário criado com sucesso."
   	  redirect_to login_path
     end
   end
@@ -51,9 +51,15 @@ class UsersController < ApplicationController
     @user.destroy
     flash[:notice] = "Usuario apagado."
     if session[:user_id] == @user.id
-      sign_out 
+      sign_out
+  	  # Refresh the menu in the layout
+      refresh_dom_with_partial('#login', 'sessions/log')
+      refresh_dom_with_partial('#refresher', 'shared/content')
       redirect_to login_path
     else
+  	  # Refresh the menu in the layout
+      refresh_dom_with_partial('#login', 'sessions/log')
+      refresh_dom_with_partial('#refresher', 'shared/content')
       redirect_to users_path
     end
   end

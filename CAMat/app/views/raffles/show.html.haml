@@ -1,5 +1,4 @@
 .m-content
-  = flash[:notice]
   %h2 Detalhes do Sorteio
 
   %ul#details
@@ -26,6 +25,6 @@
             %td= user.documento
 
 .user-options
-  = link_to 'Edit', edit_raffle_path(@raffle)
+  = link_to 'Edit', edit_raffle_path(@raffle), class: 'button'
   = button_to 'Delete', raffle_path(@raffle), :method => :delete, :confirm => 'Você tem certeza?'
-  = link_to 'Voltar as inscrições atuais',raffles_path
+  = link_to 'Voltar as inscrições atuais',raffles_path, class: 'button'

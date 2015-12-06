@@ -1,5 +1,4 @@
 .m-content
-  = flash[:notice]
   %h1 Nova Sessão
 
   .input-wrap
@@ -18,7 +17,5 @@
         = flash[:warning]
       
       %br
-      %br
-
       = submit_tag 'Mostrar Usuário'
-      = link_to 'Novo Usuário', new_user_path
+      = link_to 'Novo Usuário', new_user_path, class: 'button'

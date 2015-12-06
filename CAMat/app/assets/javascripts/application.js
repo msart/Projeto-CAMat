@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//
+// RailsAjax
+//= require jquery.history
+//= require jquery.rails-ajax
+//= require RailsAjax-Config
+//

@@ -14,7 +14,8 @@ class RafflesController < ApplicationController
   def unsubscribe
     user = User.find(session[:user_id])
     user.update_attribute(:raffle_id, nil)
-    flash[:notice] = "Voce abandonou sua inscricao."
+    flash[:notice] = "Você abandonou sua inscrição."
+    refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
   
@@ -22,7 +23,8 @@ class RafflesController < ApplicationController
     user = User.find(session[:user_id])
     user.update_attribute(:raffle_id, 1)
     #Raffle.find(1).users << user
-    flash[:notice] = "Voce se inscreveu no sorteio."
+    flash[:notice] = "Você se inscreveu no sorteio."
+    refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
   

@@ -70,3 +70,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'devise', '~> 3.5.2'
 
+# For easy Ajax
+# More info in http://rails-ajax.x-aeon.com/
+gem 'rails-ajax'
