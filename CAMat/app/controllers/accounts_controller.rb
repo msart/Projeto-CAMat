@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
     Locker.find_by_code(params[:locker]).update_attributes! owner: params[:user]
     flash[:notice] = "Armário obtido com sucesso!"
     refresh_dom_with_partial('#side_bar', 'shared/menu')
-    redirect_to users_path
+    redirect_to user_path(session[:user_id])
   end
 
   def destroy

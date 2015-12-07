@@ -4,13 +4,9 @@
   %li
     = link_to 'DADOS DO USUÁRIO', user_path(current_user.id)
   - if current_user == User.find(session[:user_id]) || is_admin?
-    %li
-      = link_to 'EDITAR DADOS', edit_user_path(User.find(session[:user_id]))
-    %li
-      = link_to 'EXCLUIR CONTA', user_path(User.find(session[:user_id])), method: :delete, confirm: 'Você tem certeza?'
     - if is_admin?
       %li
-        = link_to 'VOLTAR AOS USUÁRIOS', users_path
+        = link_to 'LISTA DE USUÁRIOS', users_path
       %li
         = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', new_raffle_path
       %li
@@ -21,8 +17,9 @@
       %li
         = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
     - else
-      %li
-      #-  = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'
+      -#
+        %li
+          = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'
     - if is_subscribed?
       %li
         = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post

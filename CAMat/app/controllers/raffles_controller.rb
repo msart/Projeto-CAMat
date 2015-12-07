@@ -8,7 +8,7 @@ class RafflesController < ApplicationController
     @raffle = Raffle.create(params[:raffle])
     @raffle.delay.run_raffle
     flash[:notice] = "Sorteio criado com sucesso."
-    redirect_to user_path(session[:user_id])
+    redirect_to raffles_path
   end
 
   def unsubscribe
@@ -50,7 +50,7 @@ class RafflesController < ApplicationController
   def destroy
     @raffle = Raffle.find(params[:id])
     @raffle.destroy
-    redirect_to raffle_path
+    redirect_to raffles_path
   end
 
   def edit
@@ -61,6 +61,6 @@ class RafflesController < ApplicationController
     @raffle = Raffle.find(params[:id])
     @raffle.update_attributes!(params[:raffle])
     flash[:notice] = "Os dados do sorteio foram atualizados com sucesso."
-    redirect_to user_path(session[:user_id]) 
+    redirect_to raffle_path(params[:id])
   end
 end

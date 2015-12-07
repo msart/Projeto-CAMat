@@ -39,5 +39,7 @@
         = select :user, :admin, [true, false]
 
       %br
+      %br
 
-      = submit_tag 'Update User Info'
+      = submit_tag 'Atualizar Dados'
+      = link_to 'Cancelar', user_path(params[:id]), class: 'button'
