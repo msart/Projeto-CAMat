@@ -123,7 +123,6 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
-    magic_encoding (0.0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -266,7 +265,6 @@ DEPENDENCIES
   haml-rails (>= 0.3.4)
   jquery-rails
   launchy
-  magic_encoding (~> 0.0.2)
   mocha (~> 1.1.0)
   poltergeist (~> 1.6.0)
   rails (= 3.2.16)
