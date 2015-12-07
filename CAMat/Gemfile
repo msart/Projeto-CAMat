@@ -40,6 +40,8 @@ group :development, :test do
 
   # Fixtures made easy
   gem 'factory_girl_rails', '~> 4.5.0'
+  
+  gem 'magic_encoding', '~> 0.0.2'
 end
 
 group :cucumber do

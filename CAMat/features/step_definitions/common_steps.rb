@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 When(/^I fill the "(.*?)" field with "(.*?)"$/) do |label, value|
   fill_in label, with: value
 end

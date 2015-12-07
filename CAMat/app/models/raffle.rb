@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Raffle < ActiveRecord::Base
   attr_accessible :finish, :start, :users
   has_many :users

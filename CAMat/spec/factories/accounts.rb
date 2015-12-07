@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 FactoryGirl.define do
   factory :account do |a|
     a.expire_date {"06:03:05 AM"}

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Locker < ActiveRecord::Base
   attr_accessible :code, :owner
   

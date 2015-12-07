@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRaffles < ActiveRecord::Migration
   def change
     create_table :raffles do |t|

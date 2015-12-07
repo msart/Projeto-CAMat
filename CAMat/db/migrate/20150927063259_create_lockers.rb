@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateLockers < ActiveRecord::Migration
   def change
     create_table :lockers do |t|
