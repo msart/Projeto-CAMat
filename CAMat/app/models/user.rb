@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   attr_accessible :email, :nome, :documento, :telefone, :password, :password_confirmation, :admin
   belongs_to :raffle

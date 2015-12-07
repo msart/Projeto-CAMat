@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module UsersHelper
 	def is_admin?
 		current_user.admin

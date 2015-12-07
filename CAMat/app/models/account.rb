@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Account < ActiveRecord::Base
   #maybe change locker to locker_code
   attr_accessible :expire_date, :locker, :user

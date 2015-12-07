@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Given(/^I am at the user creation page$/) do
   visit new_user_path
 end

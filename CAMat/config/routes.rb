@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 CAMat::Application.routes.draw do
 
   get "raffles/delete"

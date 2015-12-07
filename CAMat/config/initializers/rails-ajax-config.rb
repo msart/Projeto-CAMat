@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # RailsAjax configuration
 RailsAjax.configure do
 
