@@ -57,8 +57,8 @@ Given(/^I am logged in as an Admin$/) do
     Given I have an Admin with nome "admin" and email "admin@camat.com" and documento "1212121" and telefone "12121212" and password "senhaadmin"
     Given I am at the home page
   }
-  fill_in "Usuário / Email", :with => "admin@camat.com"
-  fill_in "Password", :with => "senhaadmin"
+  fill_in "_Usuário / Email", :with => "admin@camat.com"
+  fill_in "_Senha", :with => "senhaadmin"
   click_button "Entrar"
   visit user_path(User.find_by_email("admin@camat.com"))
 end
@@ -94,8 +94,8 @@ Given(/^I am logged in as an User$/) do
   steps %Q{
     Given I am at the home page
   }
-  fill_in "Usuário / Email", :with => "cliente@gmail.com"
-  fill_in "Password", :with => "123456"
+  fill_in "_Usuário / Email", :with => "cliente@gmail.com"
+  fill_in "_Senha", :with => "123456"
   click_button "Entrar"
   visit user_path(User.find_by_email("cliente@gmail.com"))
 end

@@ -10,8 +10,8 @@
       = flash[:warning]
   =form_tag login_path :method => :post do
     .formItem
-      = text_field :session, :email, placeholder: 'Usuário / Email', style: 'max-width: 175px'
-      = password_field :session, :password, placeholder: 'Senha', style: 'max-width: 175px'
+      = text_field :session, :email, placeholder: '_Usuário / Email', style: 'max-width: 175px'
+      = password_field :session, :password, placeholder: '_Senha', style: 'max-width: 175px'
     %div
       = submit_tag 'Entrar', class: 'button'
       = link_to 'Cadastrar-se', new_user_path, class: 'button'
