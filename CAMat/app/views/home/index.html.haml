@@ -8,8 +8,8 @@
         %li.btn2
           = link_to "ENTRAR", login_path
 .m-content
-  .m-feed
-    %h1 Notícias
-    
-    %p 
-      = Feed.find_by_id(1).msg
+  - if Feed.find_by_id(1) != nil
+    .m-feed
+      %h1 Notícias
+      %p 
+        = Feed.find_by_id(1).msg
