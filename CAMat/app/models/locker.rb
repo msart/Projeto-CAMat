@@ -15,7 +15,14 @@ class Locker < ActiveRecord::Base
   end
   
   def price(locker_code)
-    #TODO: retorna os preços baseando-se no código do armário
+	locker_number = Integer(locker_code.scan(/\d/).join(''),10)
+	price = 0
+	if(locker_number < 9)
+ 	   price = 20
+	else
+		price = 30
+	end
+	return price 
   end
   
   def self.is_locker_occupied?(locker_code)
