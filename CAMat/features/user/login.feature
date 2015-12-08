@@ -9,13 +9,13 @@ Feature: User Login
       | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | false |
 
   Scenario: with valid fields
-    Given  I am at the login page
-    When I fill the "Email" field with "cliente@gmail.com"
-    And I fill the "Senha" field with "123456"
-    When I press the "Mostrar Usuário" button
-    Then I should see "Cliente"
+    Given  I am at the home page
+    When I fill the "Usuário / Email" field with "cliente@gmail.com"
+    And I fill the "Password" field with "123456"
+    When I press the "Entrar" button
+    Then I should see "Bem vindo"
 
   Scenario: without valid fields
     Given I am at the login page
     When I press the "Mostrar Usuário" button
-    Then I should see "Combinacao email/senha invalida"
+    Then I should see "Combinação email/senha inválida"

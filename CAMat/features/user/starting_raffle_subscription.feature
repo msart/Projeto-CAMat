@@ -9,8 +9,8 @@ Feature: Admin starting raffle subscription period
       | Cliente | cliente@gmail.com | 1234        | 987654321 | 123456    | 123456                | true  |
 
   Scenario: while outside subscription period
-    Given I am logged in as an Admin
-    When I click the "Iniciar período de inscrição" link
+    Given I am logged in as an User
+    When I click the "INICIAR PERÍODO DE INSCRIÇÃO" link
     Then I should see "Novo Sorteio"
     When I fill the "Início das Inscrições" field with "01/01/2016"
     And I fill the "Fim das Inscrições" field with "01/02/2016"

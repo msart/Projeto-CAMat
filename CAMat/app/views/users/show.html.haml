@@ -24,4 +24,7 @@
       = link_to 'Abandonar Armário', account_path, :method => :delete, :confirm => 'Você tem certeza?', class: 'button'
     - if is_admin?
       = link_to 'Voltar aos Usuários', users_path, class: 'button'
-      = link_to 'Editar Feed', edit_feed_path(Feed.find_by_id(1)), class: 'button'
+      - if Feed.find_by_id(1) != nil
+        = link_to 'Editar Feed', edit_feed_path(Feed.find_by_id(1)), class: 'button'
+      - else
+        = link_to 'Editar Feed', msg_path, class: 'button'

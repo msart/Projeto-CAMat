@@ -13,6 +13,7 @@ CAMat::Application.routes.draw do
   get "accounts/destroy"
   get "users/edit"
   get "users/show"
+  get    'msg'     => 'feed#create'
   get    'home'    => 'home#index'
   get    'locker_occupation' => 'lockers#occupied_lockers_list'
   get    'lockers' => 'lockers#index'

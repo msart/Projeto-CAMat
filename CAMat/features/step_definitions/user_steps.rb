@@ -7,6 +7,10 @@ Given(/^I am at the login page$/) do
   visit login_path
 end
 
+Given(/^I am at the home page$/) do
+  visit home_path
+end
+
 Then(/^I should see a confirmation window$/) do
   steps %Q{
     Then I should see "Esta certo de que quer abandonar seu armario?"
@@ -51,11 +55,11 @@ end
 Given(/^I am logged in as an Admin$/) do
   steps %Q{
     Given I have an Admin with nome "admin" and email "admin@camat.com" and documento "1212121" and telefone "12121212" and password "senhaadmin"
-    Given I am at the login page
+    Given I am at the home page
   }
-  fill_in "Email", :with => "admin@camat.com"
-  fill_in "Senha", :with => "senhaadmin"
-  click_button "Mostrar Usuário"
+  fill_in "Usuário / Email", :with => "admin@camat.com"
+  fill_in "Password", :with => "senhaadmin"
+  click_button "Entrar"
   visit user_path(User.find_by_email("admin@camat.com"))
 end
 
@@ -72,20 +76,27 @@ Given (/^the following locker exists:$/) do |locker_table|
   end
 end
 
+
+Given (/^the following feed exists:$/) do |feed_table|
+  feed_table.hashes.each do |feed|
+    Feed.create(feed)
+  end
+end
+
 Given (/^I am subscribed to the raffle$/) do
   steps %Q{
     Given I am logged in as an User
-    When I press the "Inscrever-me" button
+    When I click the "INSCREVER-SE" link
   }
 end
 
 Given(/^I am logged in as an User$/) do
   steps %Q{
-    Given I am at the login page
+    Given I am at the home page
   }
-  fill_in "Email", :with => "cliente@gmail.com"
-  fill_in "Senha", :with => "123456"
-  click_button "Mostrar Usuário"
+  fill_in "Usuário / Email", :with => "cliente@gmail.com"
+  fill_in "Password", :with => "123456"
+  click_button "Entrar"
   visit user_path(User.find_by_email("cliente@gmail.com"))
 end
 When (/^I accept the confirmation window$/) do
@@ -96,6 +107,13 @@ Given (/^I have a locker$/) do
 end
 
 Given (/^I am at my home page$/) do
-  @user = User.where(nome: 'Cliente', email: 'cliente@gmail.com')
+  @user = User.find_by_email('cliente@gmail.com')
   visit user_path(@user)
 end
+
+Then(/^I should be at the edit feed page$/) do
+  steps %Q{
+    Then I should see "Mensagem"
+  }
+end
+

@@ -12,7 +12,7 @@ Feature: User Creation
     And I fill the "Senha" field with "123456"
     And I fill the "Confirmar senha" field with "123456"
     And I press the "Criar usuário" button
-    Then I should see "User criado com sucesso."
+    Then I should see "Usuário criado com sucesso."
 
   Scenario: without valid fields
     Given I am at the user creation page

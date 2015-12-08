@@ -13,10 +13,10 @@ Feature: User signing up for a locker
   
   Scenario: during subscription period
     Given I am logged in as an User
-    When I press the "Inscrever-me" button
+    When I click the "INSCREVER-SE" link
     Then I should be at my home page
-    And I should see "Voce se inscreveu no sorteio."
+    And I should see "Você se inscreveu no sorteio."
 
   Scenario: outside subscription period
     Given I am logged in as an User
-    Then I should see "Requerir Armário"
+    Then I should see "REQUERIR ARMÁRIO"

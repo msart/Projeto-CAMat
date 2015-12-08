@@ -10,14 +10,14 @@ Feature: Admin editing permission
 
   Scenario: access to user list
    	Given I am logged in as an Admin
-    When I click the "Voltar aos usuários" link
+    When I click the "LISTA DE USUÁRIOS" link
     Then I should be at the user list page
 
   Scenario: editing a generic user
     Given I am logged in as an Admin
     And I have a valid User named "Cliente" 
-    When I click the "Voltar aos usuários" link
+    When I click the "LISTA DE USUÁRIOS" link
     Then I should be at the user list page
     When I click the "Cliente" link
-	And I click the "Edit" link
-  	Then I should see "Editar informações"
+	  And I click the "Edit" link
+  	Then I should see "Editar Dados"

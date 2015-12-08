@@ -14,11 +14,10 @@ Feature: User giving up his locker
     Scenario: While I have a locker
   	Given I have a locker
   	And I am logged in as an User
-  	And I have a locker
-    When I press the "Abandonar Armário" button
+    When I click the "Abandonar Armário" link
     And I accept the confirmation window
-    And I should see "Você abandonou seu armário."
-    And I should see "Armário: -"
+    And I click the "DADOS DO USUÁRIO" link
+    And I should see "Armário:"
 
   Scenario: While I have no locker
     Given I am at my home page
