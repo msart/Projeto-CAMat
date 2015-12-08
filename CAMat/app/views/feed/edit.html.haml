@@ -1,5 +1,5 @@
 .m-content
-  %h1 Atualizar Feed
+  %h1 Atualizar Feed de Notícias
 
   .input-wrap
     = form_tag feed_path(@feed.id), :method => :put do
@@ -12,4 +12,4 @@
       %br
 
       = submit_tag 'Atualizar Mensagem'
-      = link_to 'Cancelar', user_path(params[:id]), class: 'button'
+      = link_to 'Cancelar', home_path, class: 'button'

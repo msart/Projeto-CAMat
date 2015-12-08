@@ -7,6 +7,12 @@
     - if is_admin?
       %li
         = link_to 'LISTA DE USUÁRIOS', users_path
+      - if Feed.find_by_id(1) != nil
+        %li
+          = link_to 'ATUALIZAR FEED', edit_feed_path(Feed.find_by_id(1))
+      - else
+        %li
+          = link_to 'ATUALIZAR FEED', msg_path
       %li
         = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', new_raffle_path
       %li

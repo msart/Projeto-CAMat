@@ -7,7 +7,7 @@ class FeedController < ApplicationController
 	def create
   		@feed = Feed.create(params[:feed])
   	  	flash[:notice] = "Mensagem criada com sucesso."
-  	  	redirect_to user_path(session[:user_id]) 
+  	  	redirect_to home_path
   	end
 
 	def edit
@@ -18,6 +18,6 @@ class FeedController < ApplicationController
 		@feed = Feed.find params[:id]
     	@feed.update_attributes!(params[:feed])
     	flash[:notice] = "Mensagem atualizada com sucesso."
-    	redirect_to user_path(session[:user_id]) 
+    	redirect_to home_path
 	end
 end
