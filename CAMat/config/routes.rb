@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 CAMat::Application.routes.draw do
 
+  get 'feed/edit'
+
   get "raffles/delete"
 
   get "raffles/edit"
@@ -20,7 +22,7 @@ CAMat::Application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   post   'subscribe' => 'raffles#subscribe'
   post   'unsubscribe' => 'raffles#unsubscribe'   
-  resources :users, :accounts, :raffles
+  resources :users, :accounts, :raffles, :feed
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
