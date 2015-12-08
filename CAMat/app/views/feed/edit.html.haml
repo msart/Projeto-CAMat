@@ -1,0 +1,15 @@
+.m-content
+  %h1 Atualizar Feed
+
+  .input-wrap
+    = form_tag feed_path(@feed.id), :method => :put do
+
+      = label :feed, :msg, 'Mensagem'
+      = text_field :feed, :msg
+
+
+      %br
+      %br
+
+      = submit_tag 'Atualizar Mensagem'
+      = link_to 'Cancelar', user_path(params[:id]), class: 'button'
