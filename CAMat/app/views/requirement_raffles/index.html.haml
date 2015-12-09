@@ -1,0 +1,16 @@
+.m-content
+  %h1 Índice de inscrições ativas
+
+  %table#raffles
+    %thead
+      %tr
+        %th Início do período de inscrições
+        %th Fim do período de inscrições
+        %th Armário
+    %tbody
+      - if @raffles != nil
+        - @raffles.each do |raffle|
+          %tr
+            %td= link_to "#{raffle.start}", requirement_raffle_path(raffle.id)
+            %td= raffle.finish
+            %td= raffle.locker

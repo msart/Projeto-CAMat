@@ -23,4 +23,24 @@ class RequirementRafflesController < ApplicationController
     refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
+
+  def index
+    if is_admin?
+      @raffles = RequirementRaffle.all
+    else
+      redirect_to user_path(session[:user_id])
+    end
+  end
+
+  def show
+    id = params[:id]
+    @raffle = RequirementRaffle.find(id)
+    @users = @raffle.users
+  end
+
+  def destroy
+    @raffle = Raffle.find(params[:id])
+    @raffle.destroy
+    redirect_to raffles_path
+  end
 end

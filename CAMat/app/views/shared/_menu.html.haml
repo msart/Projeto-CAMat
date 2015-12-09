@@ -15,8 +15,12 @@
           = link_to 'ATUALIZAR FEED', msg_path
       %li
         = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', edit_raffle_path(Raffle.find_by_id(1))
-      %li
-        = link_to 'SORTEIOS ATIVOS', raffles_path
+      - if is_raffle_period?
+        %li
+          = link_to 'SORTEIOS ATIVOS', raffles_path
+      - else
+        %li
+          = link_to 'SORTEIOS ATIVOS', requirement_raffles_path
       %li
         = link_to 'ARMÁRIOS LOCADOS', lockers_path
     - if !is_raffle_period?
