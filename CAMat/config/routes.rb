@@ -13,6 +13,10 @@ CAMat::Application.routes.draw do
   get "accounts/destroy"
   get "users/edit"
   get "users/show"
+<<<<<<< HEAD
+=======
+  post   'requirement' => 'requirement_raffles#create'
+>>>>>>> 6bf869a875d5f10c22e5880424a0a0605adb7c7d
   get    'msg'     => 'feed#create'
   get    'home'    => 'home#index'
   get    'locker_occupation' => 'lockers#occupied_lockers_list'

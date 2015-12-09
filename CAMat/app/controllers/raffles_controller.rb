@@ -28,6 +28,8 @@ class RafflesController < ApplicationController
     refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
+
+  before_filter :is_admin?, only: [:edit, :update, :destroy, :show, :index]
   
   def index
     if is_admin?
@@ -36,8 +38,6 @@ class RafflesController < ApplicationController
       redirect_to user_path(session[:user_id])
     end
   end
-
-  before_filter :is_admin?, only: [:edit, :update, :destroy, :show]
 
   def show
     id = params[:id]
