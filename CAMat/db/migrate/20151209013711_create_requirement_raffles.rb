@@ -1,9 +1,9 @@
 class CreateRequirementRaffles < ActiveRecord::Migration
   def change
     create_table :requirement_raffles do |t|
-      t.DateTime :finish
-      t.DateTime :start
-      t.string :locker_code
+      t.datetime :finish
+      t.datetime :start
+      t.string :locker
 
       t.timestamps
     end

@@ -4490,3 +4490,88 @@ Served asset /background.jpg - 304 Not Modified (5ms)
 >>>>>>> 185ab6377e3ab9def215094c72d94e1c16aa36db
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (7.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (175.8ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "locker" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "expire_date" datetime) 
+  [1m[36m (15.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (18.0ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (14.0ms)[0m  [1mCREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "msg" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (21.2ms)[0m  CREATE TABLE "lockers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "owner" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (17.5ms)[0m  [1mCREATE TABLE "raffles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start" datetime, "finish" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar(255), "email" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar(255), "documento" varchar(255), "telefone" varchar(255), "admin" boolean, "raffle_id" integer) 
+  [1m[36m (10.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_documento" ON "users" ("documento")[0m
+  [1m[35m (17.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (17.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (13.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (21.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151207234738')
+  [1m[36m (13.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150912012351')[0m
+  [1m[35m (14.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150929183546')
+  [1m[36m (13.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151110160028')[0m
+  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150929183650')
+  [1m[36m (13.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150927214126')[0m
+  [1m[35m (13.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150929135725')
+  [1m[36m (14.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150912013101')[0m
+  [1m[35m (13.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150912013621')
+  [1m[36m (13.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150912014022')[0m
+  [1m[35m (13.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150929165828')
+  [1m[36m (13.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150912011634')[0m
+  [1m[35m (13.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150927063259')
+  [1m[36m (12.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151107232811')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150916012827')
+  [1m[36m (13.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151110145042')[0m
+  [1m[35m (22.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (2.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20150912011634)
+Migrating to AddPasswordDigestToUsers (20150912012351)
+Migrating to AddIndexToUsersEmail (20150912013101)
+Migrating to AddDocumentoToUsers (20150912013621)
+Migrating to AddIndexToUsersDocumento (20150912014022)
+Migrating to AddTelefoneToUsers (20150916012827)
+Migrating to CreateLockers (20150927063259)
+Migrating to CreateAccounts (20150927214126)
+Migrating to AddAdminToUser (20150929135725)
+Migrating to FixColumnName (20150929165828)
+Migrating to RemoveExpireDateFromAccounts (20150929183546)
+Migrating to AddExpireDateToAccounts (20150929183650)
+Migrating to CreateRaffles (20151107232811)
+Migrating to CreateDelayedJobs (20151110145042)
+Migrating to AddingForeign (20151110160028)
+Migrating to CreateFeeds (20151207234738)
+Migrating to CreateRequirementRaffles (20151209013711)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (2.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20150912011634)
+Migrating to AddPasswordDigestToUsers (20150912012351)
+Migrating to AddIndexToUsersEmail (20150912013101)
+Migrating to AddDocumentoToUsers (20150912013621)
+Migrating to AddIndexToUsersDocumento (20150912014022)
+Migrating to AddTelefoneToUsers (20150916012827)
+Migrating to CreateLockers (20150927063259)
+Migrating to CreateAccounts (20150927214126)
+Migrating to AddAdminToUser (20150929135725)
+Migrating to FixColumnName (20150929165828)
+Migrating to RemoveExpireDateFromAccounts (20150929183546)
+Migrating to AddExpireDateToAccounts (20150929183650)
+Migrating to CreateRaffles (20151107232811)
+Migrating to CreateDelayedJobs (20151110145042)
+Migrating to AddingForeign (20151110160028)
+Migrating to CreateFeeds (20151207234738)
+Migrating to CreateRequirementRaffles (20151209013711)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "requirement_raffles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "finish" datetime, "start" datetime, "locker" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151209013711')[0m
+  [1m[35m (37.1ms)[0m  commit transaction
+Migrating to AddForeignRequerimentRaffle (20151209015749)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "requeriment_raffles" ADD "user_id" integer
+SQLite3::SQLException: no such table: requeriment_raffles: ALTER TABLE "requeriment_raffles" ADD "user_id" integer
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m

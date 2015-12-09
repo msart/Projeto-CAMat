@@ -19,7 +19,7 @@
         -if occupation == 'Livre'
           %td
             %span.green
-              = link_to "#{code}", accounts_path(user: current_user.nome, locker: code, expire_date: @time), method: :post
+              = link_to "#{code}", requirement_path(locker: code, start: @time, finish: 1.week.from_now), method: :post
         -else
           %td
             %span.red
