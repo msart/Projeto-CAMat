@@ -24,9 +24,4 @@ class Raffle < ActiveRecord::Base
   end
   handle_asynchronously :run_raffle, :run_at => Proc.new {finish.to_time}
   
-  def run_raffle(locker)
-    subscribed_users = this.users.shuffle
-    Account.create locker: locker, user: subscribed_users.pop, expire_date: 1.year.from_now
-  end
-  handle_asynchronously :run_raffle, :run_at => Proc.new {finish.to_time}
 end
