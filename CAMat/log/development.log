@@ -4488,3 +4488,4 @@ Served asset /logo.jpg - 304 Not Modified (0ms)
 Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
 Served asset /background.jpg - 304 Not Modified (5ms)
 >>>>>>> 185ab6377e3ab9def215094c72d94e1c16aa36db
+Connecting to database specified by database.yml

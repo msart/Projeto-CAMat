@@ -7,8 +7,8 @@ class RafflesController < ApplicationController
     params[:raffle][:start] = DateTime.parse(params[:raffle][:start])
     params[:raffle][:finish] = DateTime.parse(params[:raffle][:finish])
     @raffle = Raffle.create(params[:raffle])
-    @raffle.delay.run_raffle
-    flash[:notice] = "Sorteio criado com sucesso."
+    @raffle.delay.run_raffle(params[:locker])
+    flash[:notice] = "Inscrito no Sorteio."
     redirect_to raffles_path
   end
 
