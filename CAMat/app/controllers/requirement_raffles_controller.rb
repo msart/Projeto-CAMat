@@ -14,10 +14,10 @@ class RequirementRafflesController < ApplicationController
     user = User.find(session[:user_id])
     raffle = RequirementRaffle.find_by_locker(params[:locker])
     if !raffle.present?
-      raffle = RequirementRaffle.create(params)
+      raffle = RequirementRaffle.create(params[:requerimentraffle])
       raffle.delay.run_raffle
     end
-    raffle.user << user
+    #raffle.user << user
     #Raffle.find(1).users << user
     flash[:notice] = "Inscrito no Sorteio."
     refresh_dom_with_partial('#side_bar', 'shared/menu')
