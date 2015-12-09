@@ -23,7 +23,9 @@ CAMat::Application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   post   'subscribe' => 'raffles#subscribe'
   post   'unsubscribe' => 'raffles#unsubscribe'
-  post   'requirement' => 'requirement_raffles#subscribe'   
+  post   'requirement' => 'requirement_raffles#subscribe'
+  get   'requirementcancel' => 'requirement_raffles#unsubscribe' 
+  post   'requirementcancel' => 'requirement_raffles#unsubscribe'   
   resources :users, :accounts, :raffles, :feed, :requirement_raffles
 
   # The priority is based upon order of creation:

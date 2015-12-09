@@ -25,8 +25,12 @@
         = link_to 'ARMÁRIOS LOCADOS', lockers_path
     - if !is_raffle_period?
       - if User.find(session[:user_id]).locker == '-'
-        %li
-          = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+        - if !have_requirement?
+          %li
+            = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+        - else
+          %li
+            = link_to 'CANCELAR REQUERIMENTO', requirementcancel_path
       - else
         %li
           = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'

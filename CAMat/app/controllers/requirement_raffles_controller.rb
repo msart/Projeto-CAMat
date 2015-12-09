@@ -12,6 +12,7 @@ class RequirementRafflesController < ApplicationController
   
   def subscribe
     user = User.find(session[:user_id])
+    user.update_attribute(:requirement_raffle_id, 1)
     raffle = RequirementRaffle.find_by_locker(params[:locker])
     if !raffle.present?
       raffle = RequirementRaffle.create(start: params[:start], finish: params[:finish], locker: params[:locker])
@@ -20,6 +21,14 @@ class RequirementRafflesController < ApplicationController
     #raffle.user << user
     #Raffle.find(1).users << user
     flash[:notice] = "Inscrito no Sorteio."
+    refresh_dom_with_partial('#side_bar', 'shared/menu')
+    redirect_to user_path(session[:user_id])
+  end
+
+  def unsubscribe
+    user = User.find(session[:user_id])
+    user.update_attribute(:requirement_raffle_id, nil)
+    flash[:notice] = "Você abandonou sua inscrição."
     refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
