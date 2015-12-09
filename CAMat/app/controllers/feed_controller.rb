@@ -17,7 +17,10 @@ class FeedController < ApplicationController
 
 	def update
 		@feed = Feed.find params[:id]
-    	@feed.update_attributes!(params[:feed])
+		time = Time.now
+		time = "(#{time.day}/#{time.month}/#{time.year}-#{time.hour}:#{time.min}:#{time.sec})\n\n"
+		@feed.update_attributes(params[:feed])
+    	@feed.update_attributes!(msg: time+@feed.msg)
     	flash[:notice] = "Mensagem atualizada com sucesso."
     	redirect_to home_path
 	end
