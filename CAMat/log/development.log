@@ -1184,3 +1184,1816 @@ Binary data inserted for `string` type on column `password_digest`
 Connecting to database specified by database.yml
   [1m[36m (2.8ms)[0m  [1mselect sqlite_version(*)[0m
   [1m[35m (3.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (263.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (187.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateUsers (20150912011634)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar(255), "email" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150912011634')[0m
+  [1m[35m (247.5ms)[0m  commit transaction
+Migrating to AddPasswordDigestToUsers (20150912012351)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "password_digest" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150912012351')[0m
+  [1m[35m (133.9ms)[0m  commit transaction
+Migrating to AddIndexToUsersEmail (20150912013101)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150912013101')[0m
+  [1m[35m (121.7ms)[0m  commit transaction
+Migrating to AddDocumentoToUsers (20150912013621)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "documento" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150912013621')[0m
+  [1m[35m (65.6ms)[0m  commit transaction
+Migrating to AddIndexToUsersDocumento (20150912014022)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_documento" ON "users" ("documento")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150912014022')[0m
+  [1m[35m (104.0ms)[0m  commit transaction
+Migrating to AddTelefoneToUsers (20150916012827)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "telefone" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150916012827')[0m
+  [1m[35m (104.1ms)[0m  commit transaction
+Migrating to CreateLockers (20150927063259)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "lockers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "owner" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150927063259')[0m
+  [1m[35m (118.4ms)[0m  commit transaction
+Migrating to CreateAccounts (20150927214126)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "locker" varchar(255), "expire_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150927214126')[0m
+  [1m[35m (96.7ms)[0m  commit transaction
+Migrating to AddAdminToUser (20150929135725)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "admin" boolean
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150929135725')[0m
+  [1m[35m (61.3ms)[0m  commit transaction
+Migrating to FixColumnName (20150929165828)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "altered_lockers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "owner" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "lockers"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "lockers"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "lockers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar(255), "owner" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_lockers"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_lockers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20150929165828')
+  [1m[36m (91.4ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveExpireDateFromAccounts (20150929183546)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "locker" varchar(255), "expire_date" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "accounts"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "accounts"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user" varchar(255), "locker" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_accounts"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_accounts"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150929183546')[0m
+  [1m[35m (65.2ms)[0m  commit transaction
+Migrating to AddExpireDateToAccounts (20150929183650)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "accounts" ADD "expire_date" datetime
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150929183650')[0m
+  [1m[35m (62.8ms)[0m  commit transaction
+Migrating to CreateRaffles (20151107232811)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "raffles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start" datetime, "finish" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151107232811')[0m
+  [1m[35m (112.5ms)[0m  commit transaction
+Migrating to CreateDelayedJobs (20151110145042)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20151110145042')
+  [1m[36m (143.1ms)[0m  [1mcommit transaction[0m
+Migrating to AddingForeign (20151110160028)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "raffles" ADD "user_id" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "raffle_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151110160028')[0m
+  [1m[35m (100.2ms)[0m  commit transaction
+Migrating to CreateFeeds (20151207234738)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "feeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "msg" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20151207234738')[0m
+  [1m[35m (99.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (42.9ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A01"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (130.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A02"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[36m (73.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A03"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (86.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A04"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A05"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (97.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A06"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A07"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (75.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A08"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[36m (86.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A09"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (64.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A10"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A11"], ["created_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:25 UTC +00:00]]
+  [1m[35m (64.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A12"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (97.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A13"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[35m (75.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A14"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (63.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "A15"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[35m (97.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "A16"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (106.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B01"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[35m (88.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B02"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (96.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B03"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[35m (75.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B04"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B05"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[35m (96.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B06"], ["created_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:26 UTC +00:00]]
+  [1m[36m (74.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B07"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (75.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B08"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (96.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B09"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (74.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B10"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (85.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B11"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (85.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B12"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (85.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B13"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (63.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B14"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (85.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "B15"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (104.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "B16"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C01"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[35m (96.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C02"], ["created_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:27 UTC +00:00]]
+  [1m[36m (63.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C03"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (74.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C04"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (97.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C05"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (74.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C06"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (74.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C07"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C08"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (74.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C09"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (74.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C10"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (96.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C11"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (73.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C12"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C13"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[35m (108.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C14"], ["created_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:28 UTC +00:00]]
+  [1m[36m (114.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "C15"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (68.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "C16"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[36m (75.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D01"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (85.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D02"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[36m (63.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D03"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (86.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D04"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[36m (63.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D05"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (96.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D06"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[36m (74.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D07"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (74.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D08"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[36m (96.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D09"], ["created_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:29 UTC +00:00]]
+  [1m[35m (75.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D10"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (75.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D11"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[35m (96.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D12"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (74.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D13"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[35m (156.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D14"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (101.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "D15"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[35m (78.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "D16"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (108.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E01"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[35m (75.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E02"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E03"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[35m (85.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E04"], ["created_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:30 UTC +00:00]]
+  [1m[36m (64.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E05"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (86.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E06"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[36m (63.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E07"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (96.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E08"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[36m (75.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E09"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (74.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E10"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[36m (97.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E11"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (74.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E12"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[36m (107.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E13"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (103.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E14"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[36m (78.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "E15"], ["created_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:31 UTC +00:00]]
+  [1m[35m (96.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "E16"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F01"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (73.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F02"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (108.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F03"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (74.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F04"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (63.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F05"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (86.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F06"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (129.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F07"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (86.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F08"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (63.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F09"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (86.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F10"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F11"], ["created_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:32 UTC +00:00]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F12"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (103.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F13"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[35m (66.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F14"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (97.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "F15"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[35m (86.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "F16"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (86.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G01"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[35m (96.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G02"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (85.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G03"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[35m (74.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G04"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (96.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G05"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[35m (74.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G06"], ["created_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:33 UTC +00:00]]
+  [1m[36m (75.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G07"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (85.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G08"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (85.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G09"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (75.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G10"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (119.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G11"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (63.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G12"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (85.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G13"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (96.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G14"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "G15"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (74.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "G16"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (97.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H01"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[35m (74.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H02"], ["created_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:34 UTC +00:00]]
+  [1m[36m (75.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H03"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (96.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H04"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H05"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (74.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H06"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (97.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H07"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (74.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H08"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (64.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H09"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (116.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H10"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (63.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H11"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (60.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H12"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (85.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H13"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[35m (66.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H14"], ["created_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:35 UTC +00:00]]
+  [1m[36m (94.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "H15"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (73.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "H16"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[36m (88.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I01"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (71.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I02"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[36m (122.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I03"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (72.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I04"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[36m (76.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I05"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (96.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I06"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[36m (73.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I07"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (74.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I08"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[36m (134.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I09"], ["created_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:36 UTC +00:00]]
+  [1m[35m (105.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I10"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (75.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I11"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[35m (61.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I12"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (97.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I13"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[35m (64.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I14"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (100.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "I15"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[35m (85.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "I16"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (86.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J01"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[35m (85.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J02"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (96.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J03"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[35m (75.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J04"], ["created_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:37 UTC +00:00]]
+  [1m[36m (74.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J05"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (97.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J06"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (74.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J07"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (108.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J08"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (62.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J09"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (63.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J10"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J11"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (86.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J12"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (64.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J13"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (86.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J14"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (64.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "J15"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[35m (97.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "J16"], ["created_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:38 UTC +00:00]]
+  [1m[36m (86.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L01"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (74.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L02"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (96.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L03"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (86.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L04"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (76.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L05"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (74.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L06"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (130.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L07"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (107.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L08"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L09"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (75.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L10"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (97.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L11"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[35m (75.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L12"], ["created_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:39 UTC +00:00]]
+  [1m[36m (75.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L13"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (86.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L14"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[36m (75.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "L15"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (63.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "L16"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[36m (97.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M01"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (74.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M02"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[36m (86.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M03"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (96.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M04"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[36m (75.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M05"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (118.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M06"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[36m (96.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M07"], ["created_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:40 UTC +00:00]]
+  [1m[35m (86.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M08"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[36m (118.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M09"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[35m (85.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M10"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[36m (96.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M11"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[35m (74.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M12"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[36m (95.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M13"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[35m (96.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M14"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[36m (96.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "M15"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[35m (97.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "M16"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N01"], ["created_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:41 UTC +00:00]]
+  [1m[35m (96.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N02"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (75.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N03"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[35m (97.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N04"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (117.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N05"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[35m (109.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N06"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (85.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N07"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[35m (107.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N08"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (86.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N09"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[35m (86.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N10"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (85.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N11"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[35m (97.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N12"], ["created_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:42 UTC +00:00]]
+  [1m[36m (74.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N13"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N14"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[36m (107.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "N15"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[35m (74.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "N16"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[36m (97.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O01"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[35m (119.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O02"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[36m (75.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O03"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[35m (127.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O04"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[36m (177.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O05"], ["created_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:43 UTC +00:00]]
+  [1m[35m (152.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O06"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[36m (162.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O07"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[35m (163.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O08"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[36m (152.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O09"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[35m (151.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O10"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[36m (151.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O11"], ["created_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:44 UTC +00:00]]
+  [1m[35m (130.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O12"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[36m (152.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O13"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[35m (130.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O14"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[36m (141.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "O15"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[35m (141.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "O16"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[36m (141.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P01"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[35m (163.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P02"], ["created_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:45 UTC +00:00]]
+  [1m[36m (172.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P03"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[35m (121.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P04"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[36m (118.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P05"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[35m (130.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P06"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[36m (97.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P07"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[35m (152.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P08"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[36m (175.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P09"], ["created_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:46 UTC +00:00]]
+  [1m[35m (129.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P10"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[36m (95.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P11"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[35m (152.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P12"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[36m (151.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P13"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[35m (174.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P14"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "P15"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[35m (96.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "P16"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[36m (141.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q01"], ["created_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:47 UTC +00:00]]
+  [1m[35m (173.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q02"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[36m (123.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q03"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q04"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[36m (184.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q05"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[35m (97.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q06"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[36m (74.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q07"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[35m (75.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q08"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[36m (108.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q09"], ["created_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:48 UTC +00:00]]
+  [1m[35m (152.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q10"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[36m (118.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q11"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[35m (108.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q12"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[36m (85.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q13"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[35m (108.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q14"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[36m (77.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "Q15"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[35m (117.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "Q16"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[36m (116.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R01"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[35m (98.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R02"], ["created_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:49 UTC +00:00]]
+  [1m[36m (76.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R03"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[35m (153.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R04"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[36m (140.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R05"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[35m (86.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R06"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[36m (86.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R07"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[35m (97.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R08"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[36m (119.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R09"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[35m (76.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R10"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[36m (117.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R11"], ["created_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:50 UTC +00:00]]
+  [1m[35m (96.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R12"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[36m (108.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R13"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[35m (86.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R14"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[36m (107.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "R15"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[35m (137.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "R16"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[36m (66.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S01"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[35m (119.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S02"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S03"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[35m (151.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S04"], ["created_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:51 UTC +00:00]]
+  [1m[36m (119.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S05"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[35m (141.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S06"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[36m (152.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S07"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[35m (152.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S08"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[36m (118.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S09"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[35m (141.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S10"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[36m (130.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S11"], ["created_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:52 UTC +00:00]]
+  [1m[35m (152.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S12"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[36m (118.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S13"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[35m (141.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S14"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[36m (93.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "S15"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[35m (89.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "S16"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[36m (97.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T01"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[35m (97.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T02"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T03"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[35m (119.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T04"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[36m (76.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T05"], ["created_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:53 UTC +00:00]]
+  [1m[35m (128.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T06"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[36m (185.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T07"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[35m (141.5ms)[0m  commit transaction
+  [1m[36m (7.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T08"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[36m (187.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T09"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[35m (86.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T10"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[36m (97.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T11"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[35m (114.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T12"], ["created_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:54 UTC +00:00]]
+  [1m[36m (102.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T13"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (103.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T14"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[36m (67.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "T15"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (97.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "T16"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[36m (86.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U01"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (96.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U02"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[36m (85.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U03"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (108.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U04"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[36m (92.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U05"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (79.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U06"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[36m (75.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U07"], ["created_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:55 UTC +00:00]]
+  [1m[35m (114.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U08"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[36m (119.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U09"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[35m (96.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U10"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[36m (96.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U11"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[35m (68.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U12"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[36m (149.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U13"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[35m (122.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U14"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)[0m  [["code", "U15"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[35m (86.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "lockers" ("code", "created_at", "owner", "updated_at") VALUES (?, ?, ?, ?)  [["code", "U16"], ["created_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00], ["owner", ""], ["updated_at", Wed, 09 Dec 2015 00:24:56 UTC +00:00]]
+  [1m[36m (75.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('admin@camat.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."documento") = LOWER('1') LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("admin", "created_at", "documento", "email", "nome", "password_digest", "raffle_id", "telefone", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["admin", true], ["created_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00], ["documento", "1"], ["email", "admin@camat.com"], ["nome", "administradorraiz"], ["password_digest", "$2a$10$qg3tNkvIM/gmjI55mM.keeVRUlIpoCEZ90keBg2N5Rf8yqSOuLfWa"], ["raffle_id", nil], ["telefone", "11111"], ["updated_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00]]
+  [1m[35m (80.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "raffles" ("created_at", "finish", "start", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00], ["finish", Mon, 25 Jan 2016 00:00:00 UTC +00:00], ["start", Thu, 21 Jan 2016 00:00:00 UTC +00:00], ["updated_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00], ["user_id", nil]]
+  [1m[36m (62.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "feeds" ("created_at", "msg", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00], ["msg", "Bem vindos!"], ["updated_at", Wed, 09 Dec 2015 00:24:57 UTC +00:00]]
+  [1m[35m (90.3ms)[0m  commit transaction
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:54:26 -0200
+
+SyntaxError (/home/msart/Documentos/Projeto-CAMat/CAMat/app/helpers/raffles_helper.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:2:in `<top (required)>'
+  app/controllers/home_controller.rb:2:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (26.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (170.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:54:28 -0200
+
+SyntaxError (/home/msart/Documentos/Projeto-CAMat/CAMat/app/helpers/raffles_helper.rb:11: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/application_controller.rb:2:in `<top (required)>'
+  app/controllers/home_controller.rb:2:in `<top (required)>'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:54:46 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (70.4ms)
+Warning. Error encountered while saving cache /home/msart/Documentos/Projeto-CAMat/CAMat/tmp/cache/sass/4d620a0b8a1cc7a02221173b208f27e97a026a91/style_base.css.scssc: can't dump anonymous class #<Class:0x00000005dc3ca0>
+
+Compiled style_base.css  (49ms)  (pid 2155)
+Compiled jquery.js  (7ms)  (pid 2155)
+Compiled jquery_ujs.js  (1ms)  (pid 2155)
+Compiled RailsAjax-Config.js  (4ms)  (pid 2155)
+Compiled account.js  (726ms)  (pid 2155)
+Compiled accounts.js  (134ms)  (pid 2155)
+Compiled feed.js  (135ms)  (pid 2155)
+Compiled home.js  (134ms)  (pid 2155)
+Compiled locker.js  (130ms)  (pid 2155)
+Compiled raffles.js  (132ms)  (pid 2155)
+Compiled sessions.js  (134ms)  (pid 2155)
+Compiled users.js  (136ms)  (pid 2155)
+Compiled jquery.history.js  (0ms)  (pid 2155)
+Compiled jquery.rails-ajax.js  (10ms)  (pid 2155)
+Compiled application.js  (1986ms)  (pid 2155)
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (9.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (29.8ms)
+  Rendered shared/_content.html.haml (34.1ms)
+Completed 500 Internal Server Error in 2359.7ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:55:35 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (27.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (19.5ms)
+  Rendered shared/_content.html.haml (20.1ms)
+Completed 500 Internal Server Error in 59.9ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:57:03 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (29.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (19.5ms)
+  Rendered shared/_content.html.haml (20.0ms)
+Completed 500 Internal Server Error in 62.3ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:57:06 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (7.0ms)
+  Rendered shared/_content.html.haml (7.6ms)
+Completed 500 Internal Server Error in 25.1ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:57:07 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (2.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (6.4ms)
+  Rendered shared/_content.html.haml (7.0ms)
+Completed 500 Internal Server Error in 22.3ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:58:39 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (31.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (22.4ms)
+  Rendered shared/_content.html.haml (23.0ms)
+Completed 500 Internal Server Error in 67.8ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:58:40 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (3.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (7.3ms)
+  Rendered shared/_content.html.haml (7.8ms)
+Completed 500 Internal Server Error in 24.4ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:58:40 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.3ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (3.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (8.4ms)
+  Rendered shared/_content.html.haml (9.2ms)
+Completed 500 Internal Server Error in 26.8ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:58:41 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (2.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (7.7ms)
+  Rendered shared/_content.html.haml (8.3ms)
+Completed 500 Internal Server Error in 23.8ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:58:41 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (4.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (11.8ms)
+  Rendered shared/_content.html.haml (12.6ms)
+Completed 500 Internal Server Error in 31.1ms
+
+ActionView::Template::Error (uninitialized constant RafflesHelper::Datetime):
+    19:         = link_to 'SORTEIOS ATIVOS', raffles_path
+    20:       %li
+    21:         = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    22:     - if !is_raffle_period?
+    23:       - if User.find(session[:user_id]).locker == '-'
+    24:         %li
+    25:           = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+  app/helpers/raffles_helper.rb:6:in `is_raffle_period?'
+  app/views/shared/_menu.html.haml:22:in `_app_views_shared__menu_html_haml__2778466465795615380_27693700'
+  app/views/shared/_content.html.haml:3:in `_app_views_shared__content_html_haml___1029594589234805204_23254060'
+  app/views/layouts/application.html.haml:20:in `_app_views_layouts_application_html_haml__1111258706946972635_51200160'
+
+
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /var/lib/gems/2.1.0/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (29.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccount Load (0.1ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  Rendered shared/_menu.html.haml (73.1ms)
+  Rendered shared/_content.html.haml (74.1ms)
+Completed 200 OK in 118.2ms (Views: 114.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /style_base.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /account.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /accounts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /raffles.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /jquery.history.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /feed.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /locker.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /logo.jpg - 304 Not Modified (86ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 22:59:00 -0200
+Served asset /background.jpg - 304 Not Modified (248ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-08 22:59:14 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000055551e0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (5.7ms)
+Completed 200 OK in 36.4ms (ActiveRecord: 0.5ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-08 22:59:25 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2015-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "raffles" SET "start" = '2015-01-21 00:00:00.000000', "updated_at" = '2015-12-09 00:59:25.203269' WHERE "raffles"."id" = 1[0m
+  [1m[35m (112.4ms)[0m  commit transaction
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 122.4ms (ActiveRecord: 113.3ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 22:59:25 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003b54890 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1[0m
+  Rendered raffles/show.html.haml (16.7ms)
+Completed 200 OK in 65.2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 22:59:33 -0200
+Processing by RafflesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml within layouts/application (6.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (6.1ms)
+  Rendered shared/_content.html.haml (6.8ms)
+Completed 200 OK in 29.0ms (Views: 26.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /style_base.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /account.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /accounts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /feed.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /locker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /raffles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /sessions.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /jquery.history.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 22:59:34 -0200
+Served asset /background.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-08 22:59:45 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007f201000d408 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (2.8ms)
+Completed 200 OK in 9.4ms (ActiveRecord: 0.3ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-08 22:59:50 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2016-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "raffles" SET "start" = '2016-01-21 00:00:00.000000', "updated_at" = '2015-12-09 00:59:50.106578' WHERE "raffles"."id" = 1
+  [1m[36m (70.1ms)[0m  [1mcommit transaction[0m
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 77.9ms (ActiveRecord: 71.0ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 22:59:50 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000062f6628 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml (4.2ms)
+Completed 200 OK in 13.7ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2015-12-08 22:59:54 -0200
+Processing by HomeController#index as */*
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000006262090 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml (6.4ms)
+Completed 200 OK in 10.0ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  Rendered home/index.html.haml within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  Rendered shared/_menu.html.haml (8.7ms)
+  Rendered shared/_content.html.haml (9.6ms)
+Completed 200 OK in 25.8ms (Views: 24.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /style_base.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /accounts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /account.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /feed.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /locker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /raffles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /jquery.history.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
+Served asset /background.jpg - 304 Not Modified (0ms)
