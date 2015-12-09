@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151209015749) do
+ActiveRecord::Schema.define(:version => 20151209220834) do
 
   create_table "accounts", :force => true do |t|
     t.string   "user"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20151209015749) do
     t.boolean  "admin"
     t.integer  "raffle_id"
     t.integer  "requirement_raffle_id"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["documento"], :name => "index_users_on_documento", :unique => true
