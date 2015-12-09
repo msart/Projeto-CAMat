@@ -4,7 +4,7 @@ class RequirementRafflesController < ApplicationController
   end
   
   def create
-    @raffle = RequirementRaffle.create(params)
+    @raffle = RequirementRaffle.create(params[:requerimentraffle])
     @raffle.delay.run_raffle
     flash[:notice] = "Inscrito no Sorteio."
     redirect_to user_path(session[:user_id])
