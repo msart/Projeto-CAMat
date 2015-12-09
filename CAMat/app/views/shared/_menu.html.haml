@@ -30,8 +30,9 @@
       %li
         = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post
     - else
-      %li
-        = link_to 'INSCREVER-SE', subscribe_path, method: :post
+      - if is_raffle_period?  
+        %li
+          = link_to 'INSCREVER-SE', subscribe_path, method: :post
   - else
     - if is_admin?
       %li
