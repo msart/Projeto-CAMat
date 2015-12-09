@@ -17,7 +17,7 @@
         = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', edit_raffle_path(Raffle.find_by_id(1))
       - if is_raffle_period?
         %li
-          = link_to 'SORTEIOS ATIVOS', raffles_path
+          = link_to 'DETALHES DO SORTEIO', raffle_path(1)
       - else
         %li
           = link_to 'SORTEIOS ATIVOS', requirement_raffles_path
@@ -34,11 +34,11 @@
       - else
         %li
           = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'
-    - if is_subscribed?
-      %li
-        = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post
-    - else
-      - if is_raffle_period?  
+    - if is_raffle_period?
+      - if is_subscribed?
+        %li
+          = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post
+      - else
         %li
           = link_to 'INSCREVER-SE', subscribe_path, method: :post
   - else

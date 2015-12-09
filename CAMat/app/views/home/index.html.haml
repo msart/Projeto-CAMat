@@ -11,5 +11,7 @@
   - if Feed.find_by_id(1) != nil
     .m-feed
       %h1 Notícias
-      %p 
-        = Feed.find_by_id(1).msg
+      %p
+        - (Feed.find_by_id(1).msg.split("\n")).each do |msg|
+          #{msg}
+          %br
