@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FeedController < ApplicationController
 	before_filter :is_admin?, only: [:edit, :update]
 
