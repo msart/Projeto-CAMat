@@ -220,6 +220,10 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    simplecov (0.6.4)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     slop (3.6.0)
     sprockets (2.2.3)
       hike (~> 1.2)
@@ -275,6 +279,10 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   selenium-webdriver
   shoulda-matchers (~> 2.8.0)
+  simplecov
   sqlite3
   test-unit
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.6
