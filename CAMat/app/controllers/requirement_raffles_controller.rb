@@ -48,8 +48,9 @@ class RequirementRafflesController < ApplicationController
   end
 
   def destroy
-    @raffle = Raffle.find(params[:id])
+    @raffle = RequirementRaffle.find(params[:id])
     @raffle.destroy
-    redirect_to raffles_path
+    refresh_dom_with_partial('#side_bar', 'shared/menu')
+    redirect_to requirement_raffles_path
   end
 end

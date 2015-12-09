@@ -62,6 +62,7 @@ class RafflesController < ApplicationController
     @raffle = Raffle.find(params[:id])
     @raffle.update_attributes!(params[:raffle])
     flash[:notice] = "Os dados do sorteio foram atualizados com sucesso."
+    refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to raffle_path(params[:id])
   end
 end
