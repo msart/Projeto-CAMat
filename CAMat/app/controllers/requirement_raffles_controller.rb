@@ -12,12 +12,12 @@ class RequirementRafflesController < ApplicationController
   
   def subscribe
     user = User.find(session[:user_id])
-    user.update_attribute(:requirement_raffle_id, 1)
     raffle = RequirementRaffle.find_by_locker(params[:locker])
     if !raffle.present?
       raffle = RequirementRaffle.create(start: params[:start], finish: params[:finish], locker: params[:locker])
       raffle.delay.run_raffle
     end
+    user.update_attribute(:requirement_raffle_id, raffle.id)
     #raffle.user << user
     #Raffle.find(1).users << user
     flash[:notice] = "Inscrito no Sorteio."

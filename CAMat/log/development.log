@@ -27367,3 +27367,1612 @@ Processing by UsersController#show as */*
   [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
   Rendered users/show.html.haml (3.6ms)
 Completed 200 OK in 14.9ms (ActiveRecord: 0.8ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (52.1ms)
+  [1m[35mUser Load (3.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (10.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (36.2ms)
+  Rendered shared/_content.html.haml (40.2ms)
+Completed 200 OK in 151.8ms (Views: 144.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /style_base.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /accounts.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /account.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /feed.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /raffles.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /sessions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /locker.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /users.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /jquery.history.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /logo.jpg - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /application.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-09 17:32:31 -0200
+Served asset /background.jpg - 304 Not Modified (7ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-09 17:32:38 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007f20dc14f628 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (6.0ms)
+Completed 200 OK in 12.6ms (ActiveRecord: 0.4ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-09 17:32:43 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2016-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "raffles" SET "start" = '2016-01-21 00:00:00.000000', "updated_at" = '2015-12-09 19:32:43.926328' WHERE "raffles"."id" = 1[0m
+  [1m[35m (105.5ms)[0m  commit transaction
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 116.3ms (ActiveRecord: 106.4ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-09 17:32:44 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007f20dc27d720 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1[0m
+  Rendered raffles/show.html.haml (8.0ms)
+Completed 200 OK in 32.1ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Processing by RafflesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml within layouts/application (7.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccount Load (0.1ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.1ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (29.7ms)
+  Rendered shared/_content.html.haml (30.5ms)
+Completed 200 OK in 54.9ms (Views: 50.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /style_base.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /account.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /accounts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /feed.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /locker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /raffles.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /jquery.history.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-09 17:32:50 -0200
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-09 17:32:51 -0200
+Served asset /background.jpg - 304 Not Modified (4ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:32:53 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRequirementRaffle Load (0.1ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" [0m
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005f63ce0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (4.0ms)
+Completed 200 OK in 9.8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/requirement_raffles/1" for 127.0.0.1 at 2015-12-09 17:32:56 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRequirementRaffle Load (0.4ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005ec4e88 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 1[0m
+  Rendered requirement_raffles/show.html.haml (9.6ms)
+Completed 200 OK in 16.5ms (ActiveRecord: 0.6ms)
+
+
+Started POST "/unsubscribe" for 127.0.0.1 at 2015-12-09 17:33:00 -0200
+Processing by RafflesController#unsubscribe as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "raffle_id" = NULL, "updated_at" = '2015-12-09 19:33:00.806860' WHERE "users"."id" = 1
+  [1m[36m (195.4ms)[0m  [1mcommit transaction[0m
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mRequirementRaffle Load (0.1ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (17.8ms)
+Completed 200 OK in 224.4ms (ActiveRecord: 196.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:33:01 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005b3e0e8 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Você abandonou sua inscrição."}, @now=nil> | Normalized arguments: {}
+  [1m[35mAccount Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  Rendered users/show.html.haml (8.5ms)
+Completed 200 OK in 19.2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/requirementcancel" for 127.0.0.1 at 2015-12-09 17:33:01 -0200
+Processing by RequirementRafflesController#unsubscribe as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "requirement_raffle_id" = NULL, "updated_at" = '2015-12-09 19:33:01.623123' WHERE "users"."id" = 1
+  [1m[36m (79.1ms)[0m  [1mcommit transaction[0m
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (12.2ms)
+Completed 200 OK in 101.1ms (ActiveRecord: 80.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:33:01 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005835130 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Você abandonou sua inscrição."}, @now=nil> | Normalized arguments: {}
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  Rendered users/show.html.haml (3.2ms)
+Completed 200 OK in 13.8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/locker_occupation" for 127.0.0.1 at 2015-12-09 17:33:03 -0200
+Processing by LockersController#occupied_lockers_list as */*
+  [1m[36mLocker Load (1.8ms)[0m  [1mSELECT "lockers".* FROM "lockers" [0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E09' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F15' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R06' LIMIT 1[0m
+  [1m[35mLocker Load (3.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T05' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T06' LIMIT 1[0m
+  [1m[35mLocker Load (0.3ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U16' LIMIT 1[0m
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003fcbc48 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered lockers/occupied_lockers_list.html.haml (168.9ms)
+Completed 200 OK in 470.6ms (ActiveRecord: 50.7ms)
+
+
+Started POST "/requirement?finish=2015-12-16+19:33:03+UTC&locker=A05&start=2015-12-09T17:33:03-02:00" for 127.0.0.1 at 2015-12-09 17:33:05 -0200
+Processing by RequirementRafflesController#subscribe as */*
+  Parameters: {"finish"=>"2015-12-16 19:33:03 UTC", "locker"=>"A05", "start"=>"2015-12-09T17:33:03-02:00"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."locker" = 'A05' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "requirement_raffles" ("created_at", "finish", "locker", "start", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 09 Dec 2015 19:33:05 UTC +00:00], ["finish", Wed, 16 Dec 2015 19:33:03 UTC +00:00], ["locker", "A05"], ["start", Wed, 09 Dec 2015 19:33:03 UTC +00:00], ["updated_at", Wed, 09 Dec 2015 19:33:05 UTC +00:00], ["user_id", nil]]
+  [1m[35m (143.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attempts", 0], ["created_at", Wed, 09 Dec 2015 19:33:05 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/object:RequirementRaffle\n  attributes:\n    id: 2\n    finish: 2015-12-16 19:33:03.000000000 Z\n    start: 2015-12-09 19:33:03.000000000 Z\n    locker: A05\n    created_at: &1 2015-12-09 19:33:05.412919784 Z\n    updated_at: *1\n    user_id: \nmethod_name: :run_raffle\nargs: []\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", nil], ["run_at", Wed, 09 Dec 2015 19:33:05 UTC +00:00], ["updated_at", Wed, 09 Dec 2015 19:33:05 UTC +00:00]]
+  [1m[36m (288.3ms)[0m  [1mcommit transaction[0m
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (11.3ms)
+Completed 200 OK in 483.5ms (ActiveRecord: 435.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:33:05 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000060da038 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Inscrito no Sorteio."}, @now=nil> | Normalized arguments: {}
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  Rendered users/show.html.haml (4.8ms)
+Completed 200 OK in 14.6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:33:08 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.1ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005ff9538 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (1.6ms)
+Completed 200 OK in 8.3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/requirement_raffles/2" for 127.0.0.1 at 2015-12-09 17:33:09 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1[0m  [["id", "2"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005f1db00 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 2
+  Rendered requirement_raffles/show.html.haml (3.6ms)
+Completed 200 OK in 9.5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:33:12 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.3ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005ec68f0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (2.2ms)
+Completed 200 OK in 9.5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/requirement_raffles/1" for 127.0.0.1 at 2015-12-09 17:33:13 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005e40fc0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 1
+  Rendered requirement_raffles/show.html.haml (3.7ms)
+Completed 200 OK in 10.2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:33:15 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.2ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005d9d0f0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (1.4ms)
+Completed 200 OK in 9.2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles/2" for 127.0.0.1 at 2015-12-09 17:33:17 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1[0m  [["id", "2"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005d08838 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 2
+  Rendered requirement_raffles/show.html.haml (4.3ms)
+Completed 200 OK in 10.6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:33:22 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.2ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005c7cfb8 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (2.1ms)
+Completed 200 OK in 9.5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2015-12-09 17:34:30 -0200
+Processing by HomeController#index as */*
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x0000000594c7a8 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml (34.8ms)
+Completed 200 OK in 38.2ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/locker_occupation" for 127.0.0.1 at 2015-12-09 17:34:32 -0200
+Processing by LockersController#occupied_lockers_list as */*
+  [1m[35mLocker Load (1.7ms)[0m  SELECT "lockers".* FROM "lockers" 
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A02' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B02' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C08' LIMIT 1
+  [1m[36mLocker Load (0.4ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C16' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D06' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E13' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F09' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H10' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I08' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J08' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L08' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N16' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O13' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O15' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P05' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P06' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P09' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P10' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P13' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q06' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q10' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R04' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R12' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R15' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S02' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S03' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S08' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S09' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S10' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S11' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S13' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S15' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S16' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T01' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T02' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T05' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T08' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T09' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T10' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T13' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T14' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T15' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T16' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U01' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U02' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U03' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U04' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U05' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U06' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U07' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U08' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U09' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U10' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U11' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U12' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U13' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U14' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U15' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U16' LIMIT 1
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005c8df48 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered lockers/occupied_lockers_list.html.haml (171.2ms)
+Completed 200 OK in 430.0ms (ActiveRecord: 47.8ms)
+
+
+Started POST "/requirement?finish=2015-12-16+19:34:32+UTC&locker=A05&start=2015-12-09T17:34:32-02:00" for 127.0.0.1 at 2015-12-09 17:34:33 -0200
+Processing by RequirementRafflesController#subscribe as */*
+  Parameters: {"finish"=>"2015-12-16 19:34:32 UTC", "locker"=>"A05", "start"=>"2015-12-09T17:34:32-02:00"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRequirementRaffle Load (0.1ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."locker" = 'A05' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "requirement_raffle_id" = 2, "updated_at" = '2015-12-09 19:34:33.841493' WHERE "users"."id" = 1
+  [1m[36m (77.5ms)[0m  [1mcommit transaction[0m
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.1ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (31.1ms)
+Completed 200 OK in 129.9ms (ActiveRecord: 80.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:34:33 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005b3e1d8 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Inscrito no Sorteio."}, @now=nil> | Normalized arguments: {}
+  [1m[35mAccount Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  Rendered users/show.html.haml (5.9ms)
+Completed 200 OK in 16.8ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-09 17:34:35 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005a11738 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (2.9ms)
+Completed 200 OK in 10.9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:34:38 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" [0m
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000058bc428 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (2.0ms)
+Completed 200 OK in 11.0ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/requirement_raffles/2" for 127.0.0.1 at 2015-12-09 17:34:39 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[35mRequirementRaffle Load (0.3ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1  [["id", "2"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x0000000581b050 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 2[0m
+  Rendered requirement_raffles/show.html.haml (4.7ms)
+Completed 200 OK in 11.1ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:34:41 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRequirementRaffle Load (0.4ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" [0m
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003fa1740 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (1.8ms)
+Completed 200 OK in 9.5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/requirement_raffles/1" for 127.0.0.1 at 2015-12-09 17:34:42 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mRequirementRaffle Load (0.2ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003e7bd70 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 1[0m
+  Rendered requirement_raffles/show.html.haml (5.1ms)
+Completed 200 OK in 10.5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirementcancel" for 127.0.0.1 at 2015-12-09 17:34:44 -0200
+Processing by RequirementRafflesController#unsubscribe as */*
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "requirement_raffle_id" = NULL, "updated_at" = '2015-12-09 19:34:44.283148' WHERE "users"."id" = 1
+  [1m[36m (149.1ms)[0m  [1mcommit transaction[0m
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeed Load (0.2ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (13.1ms)
+Completed 200 OK in 173.8ms (ActiveRecord: 151.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:34:44 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003994a00 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Você abandonou sua inscrição."}, @now=nil> | Normalized arguments: {}
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  Rendered users/show.html.haml (4.3ms)
+Completed 200 OK in 11.8ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/locker_occupation" for 127.0.0.1 at 2015-12-09 17:34:45 -0200
+Processing by LockersController#occupied_lockers_list as */*
+  [1m[36mLocker Load (2.9ms)[0m  [1mSELECT "lockers".* FROM "lockers" [0m
+  [1m[35mLocker Load (0.6ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'A16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'B16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'C16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'D16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'E16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'F16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'G16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'H16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'I16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'J16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'L16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'M16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'N16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'O16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'P16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q01' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q02' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q07' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q08' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q13' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q14' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q15' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'Q16' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R03' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R04' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R05' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R06' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R09' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'R16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S02' LIMIT 1[0m
+  [1m[35mLocker Load (0.3ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S03' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S04' LIMIT 1[0m
+  [1m[35mLocker Load (0.3ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S05' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S06' LIMIT 1[0m
+  [1m[35mLocker Load (0.3ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S07' LIMIT 1
+  [1m[36mLocker Load (0.3ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S08' LIMIT 1[0m
+  [1m[35mLocker Load (0.5ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'S16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T10' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T11' LIMIT 1
+  [1m[36mLocker Load (0.1ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T12' LIMIT 1[0m
+  [1m[35mLocker Load (0.1ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'T16' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U01' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U02' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U03' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U04' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U05' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U06' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U07' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U08' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U09' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U10' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U11' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U12' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U13' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U14' LIMIT 1[0m
+  [1m[35mLocker Load (0.2ms)[0m  SELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U15' LIMIT 1
+  [1m[36mLocker Load (0.2ms)[0m  [1mSELECT "lockers".* FROM "lockers" WHERE "lockers"."code" = 'U16' LIMIT 1[0m
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000038b5328 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered lockers/occupied_lockers_list.html.haml (167.5ms)
+Completed 200 OK in 432.6ms (ActiveRecord: 51.8ms)
+
+
+Started POST "/requirement?finish=2015-12-16+19:34:45+UTC&locker=A13&start=2015-12-09T17:34:45-02:00" for 127.0.0.1 at 2015-12-09 17:34:47 -0200
+Processing by RequirementRafflesController#subscribe as */*
+  Parameters: {"finish"=>"2015-12-16 19:34:45 UTC", "locker"=>"A13", "start"=>"2015-12-09T17:34:45-02:00"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRequirementRaffle Load (0.2ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."locker" = 'A13' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "requirement_raffles" ("created_at", "finish", "locker", "start", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 09 Dec 2015 19:34:47 UTC +00:00], ["finish", Wed, 16 Dec 2015 19:34:45 UTC +00:00], ["locker", "A13"], ["start", Wed, 09 Dec 2015 19:34:45 UTC +00:00], ["updated_at", Wed, 09 Dec 2015 19:34:47 UTC +00:00], ["user_id", nil]]
+  [1m[35m (158.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "delayed_jobs" ("attempts", "created_at", "failed_at", "handler", "last_error", "locked_at", "locked_by", "priority", "queue", "run_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attempts", 0], ["created_at", Wed, 09 Dec 2015 19:34:47 UTC +00:00], ["failed_at", nil], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/object:RequirementRaffle\n  attributes:\n    id: 3\n    finish: 2015-12-16 19:34:45.000000000 Z\n    start: 2015-12-09 19:34:45.000000000 Z\n    locker: A13\n    created_at: &1 2015-12-09 19:34:47.167499858 Z\n    updated_at: *1\n    user_id: \nmethod_name: :run_raffle\nargs: []\n"], ["last_error", nil], ["locked_at", nil], ["locked_by", nil], ["priority", 0], ["queue", nil], ["run_at", Wed, 09 Dec 2015 19:34:47 UTC +00:00], ["updated_at", Wed, 09 Dec 2015 19:34:47 UTC +00:00]]
+  [1m[36m (258.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "users" SET "requirement_raffle_id" = 3, "updated_at" = '2015-12-09 19:34:47.594882' WHERE "users"."id" = 1[0m
+  [1m[35m (73.2ms)[0m  commit transaction
+[RailsAjax] Mark partial shared/menu to be refreshed in #side_bar
+[RailsAjax] redirect_to: options="/users/1" response_status={}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.1ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.1ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (10.6ms)
+Completed 200 OK in 525.4ms (ActiveRecord: 493.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-12-09 17:34:47 -0200
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x000000058d3e98 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Inscrito no Sorteio."}, @now=nil> | Normalized arguments: {}
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  Rendered users/show.html.haml (4.3ms)
+Completed 200 OK in 12.8ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:34:50 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.2ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005816aa0 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (1.9ms)
+Completed 200 OK in 8.1ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles/3" for 127.0.0.1 at 2015-12-09 17:34:52 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mRequirementRaffle Load (0.3ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1[0m  [["id", "3"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003faa660 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 3
+  Rendered requirement_raffles/show.html.haml (3.6ms)
+Completed 200 OK in 11.3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requirement_raffles" for 127.0.0.1 at 2015-12-09 17:34:53 -0200
+Processing by RequirementRafflesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRequirementRaffle Load (0.2ms)[0m  SELECT "requirement_raffles".* FROM "requirement_raffles" 
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003e38980 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered requirement_raffles/index.html.haml (2.9ms)
+Completed 200 OK in 9.8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/requirement_raffles/2" for 127.0.0.1 at 2015-12-09 17:34:54 -0200
+Processing by RequirementRafflesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRequirementRaffle Load (0.1ms)[0m  [1mSELECT "requirement_raffles".* FROM "requirement_raffles" WHERE "requirement_raffles"."id" = ? LIMIT 1[0m  [["id", "2"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000003cb7750 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."requirement_raffle_id" = 2
+  Rendered requirement_raffles/show.html.haml (4.4ms)
+Completed 200 OK in 10.5ms (ActiveRecord: 0.5ms)
