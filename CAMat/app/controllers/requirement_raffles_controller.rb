@@ -4,7 +4,7 @@ class RequirementRafflesController < ApplicationController
   end
   
   def create
-    @raffle = RequirementRaffle.create(params[:requerimentraffle])
+    @raffle = RequirementRaffle.create(start: params[:start], finish: params[:finish], locker: params[:locker])
     @raffle.delay.run_raffle
     flash[:notice] = "Inscrito no Sorteio."
     redirect_to user_path(session[:user_id])
@@ -14,7 +14,7 @@ class RequirementRafflesController < ApplicationController
     user = User.find(session[:user_id])
     raffle = RequirementRaffle.find_by_locker(params[:locker])
     if !raffle.present?
-      raffle = RequirementRaffle.create(params[:requerimentraffle])
+      raffle = RequirementRaffle.create(start: params[:start], finish: params[:finish], locker: params[:locker])
       raffle.delay.run_raffle
     end
     #raffle.user << user
