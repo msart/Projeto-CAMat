@@ -2997,3 +2997,369 @@ Served asset /logo.jpg - 304 Not Modified (0ms)
 
 Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 22:59:55 -0200
 Served asset /background.jpg - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/home" for 127.0.0.1 at 2015-12-08 23:05:41 -0200
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mFeed Load (0.1ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (50.5ms)
+  [1m[35mUser Load (3.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/_log.html.haml (8.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccount Load (0.1ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  Rendered shared/_menu.html.haml (36.0ms)
+  Rendered shared/_content.html.haml (39.7ms)
+Completed 200 OK in 142.9ms (Views: 134.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /style_base.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /account.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /accounts.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /feed.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /locker.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /jquery.history.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /logo.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /raffles.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /application.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 23:05:42 -0200
+Served asset /background.jpg - 304 Not Modified (6ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-08 23:05:45 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007fd75020e458 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (5.1ms)
+Completed 200 OK in 12.0ms (ActiveRecord: 0.4ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-08 23:05:49 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2015-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "raffles" SET "start" = '2015-01-21 00:00:00.000000', "updated_at" = '2015-12-09 01:05:49.179035' WHERE "raffles"."id" = 1
+  [1m[36m (79.0ms)[0m  [1mcommit transaction[0m
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 90.9ms (ActiveRecord: 80.0ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 23:05:49 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007fd75034d350 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml (22.3ms)
+Completed 200 OK in 35.2ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-08 23:05:59 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007fd75034ea48 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (2.3ms)
+Completed 200 OK in 8.0ms (ActiveRecord: 0.4ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:05 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2015-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 6.4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:05 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.1ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x007fd750206c30 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1[0m
+  Rendered raffles/show.html.haml (2.8ms)
+Completed 200 OK in 8.3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Processing by RafflesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml within layouts/application (7.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (6.3ms)
+  Rendered shared/_content.html.haml (7.1ms)
+Completed 200 OK in 33.2ms (Views: 30.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /style_base.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /account.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /accounts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /feed.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /locker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /raffles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /jquery.history.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:06 -0200
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 23:06:07 -0200
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 23:06:07 -0200
+Served asset /background.jpg - 304 Not Modified (7ms)
+
+
+Started GET "/raffles/1/edit" for 127.0.0.1 at 2015-12-08 23:06:11 -0200
+Processing by RafflesController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005ef0a10 @used=#<Set: {}>, @closed=false, @flashes={}, @now=nil> | Normalized arguments: {}
+  Rendered raffles/edit.html.haml (3.1ms)
+Completed 200 OK in 8.7ms (ActiveRecord: 0.3ms)
+
+
+Started PUT "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:16 -0200
+Processing by RafflesController#update as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PF/mnXXscCoYvZZXMpNSMxSUQ+SaKDwmD7zKmNa/Bdo=", "raffle"=>{"start"=>"2016-01-21 00:00:00.000000", "finish"=>"2016-01-25 00:00:00.000000"}, "commit"=>"Atualizar Dados do Sorteio", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "raffles" SET "start" = '2016-01-21 00:00:00.000000', "updated_at" = '2015-12-09 01:06:16.906677' WHERE "raffles"."id" = 1[0m
+  [1m[35m (548.0ms)[0m  commit transaction
+[RailsAjax] redirect_to: options="/raffles/1" response_status={}
+Completed 200 OK in 556.0ms (ActiveRecord: 549.0ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:17 -0200
+Processing by RafflesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mRaffle Load (0.2ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1  [["id", "1"]]
+[RailsAjax] render: options=[] block?false flash=#<ActionDispatch::Flash::FlashHash:0x00000005de6fc0 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=>"Os dados do sorteio foram atualizados com sucesso."}, @now=nil> | Normalized arguments: {}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1[0m
+  Rendered raffles/show.html.haml (3.5ms)
+Completed 200 OK in 14.9ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/raffles/1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Processing by RafflesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.2ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."raffle_id" = 1
+  Rendered raffles/show.html.haml within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/_log.html.haml (1.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mFeed Load (0.2ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = 1 LIMIT 1
+  [1m[36mRaffle Load (0.1ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAccount Load (0.3ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."user" = 'administradorraiz' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "raffles".* FROM "raffles" WHERE "raffles"."id" = 1 LIMIT 1[0m
+  Rendered shared/_menu.html.haml (8.6ms)
+  Rendered shared/_content.html.haml (10.5ms)
+Completed 200 OK in 30.9ms (Views: 27.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/style_base.css?body=1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Served asset /style_base.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/RailsAjax-Config.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Served asset /RailsAjax-Config.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/accounts.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Served asset /accounts.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/account.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:18 -0200
+Served asset /account.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/feed.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /feed.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locker.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /locker.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/raffles.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /raffles.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.history.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /jquery.history.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.rails-ajax.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /jquery.rails-ajax.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/logo.jpg" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /logo.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/background.jpg" for 127.0.0.1 at 2015-12-08 23:06:19 -0200
+Served asset /background.jpg - 304 Not Modified (5ms)

@@ -15,7 +15,7 @@ class RafflesController < ApplicationController
   def unsubscribe
     user = User.find(session[:user_id])
     user.update_attribute(:raffle_id, nil)
-    flash[:notice] = "Você abandonou sua inscrição #{is_raffle_period?}."
+    flash[:notice] = "Você abandonou sua inscrição."
     refresh_dom_with_partial('#side_bar', 'shared/menu')
     redirect_to user_path(session[:user_id])
   end
