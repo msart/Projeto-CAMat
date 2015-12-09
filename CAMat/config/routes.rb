@@ -3,7 +3,7 @@ CAMat::Application.routes.draw do
 
   get "password_resets/new"
 
-  get "password_resets" => "password_resets#create"
+  get "password_resets/edit"
 
   get 'feed/edit'
 
