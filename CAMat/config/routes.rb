@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 CAMat::Application.routes.draw do
 
+  get "password_resets/new"
+
+  get "password_resets" => "password_resets#create"
+
   get 'feed/edit'
 
   get "raffles/delete"
@@ -27,6 +31,7 @@ CAMat::Application.routes.draw do
   get   'requirementcancel' => 'requirement_raffles#unsubscribe' 
   post   'requirementcancel' => 'requirement_raffles#unsubscribe'   
   resources :users, :accounts, :raffles, :feed, :requirement_raffles
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
