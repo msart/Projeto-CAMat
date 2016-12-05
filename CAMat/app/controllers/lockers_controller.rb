@@ -5,7 +5,7 @@ class LockersController < ApplicationController
   end
   
   def occupied_lockers_list
-    @lockers = Locker.locker_occupation_hash
+    @lockers = Locker.all
     @time = DateTime.now
   end
 end
