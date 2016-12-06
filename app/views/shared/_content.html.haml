@@ -1,0 +1,15 @@
+- if logged_in?
+  #side_bar
+    = render partial: "shared/menu", controller: "users_controller"
+  #content_centralizer
+    #content
+      %span.green#flash_notice
+        = flash[:notice]
+      #content_centralized
+        = yield
+- else
+  #content
+    %span.green#flash_notice
+      = flash[:notice]
+    #content_centralized
+      = yield

@@ -1,0 +1,16 @@
+.m-content
+  %h1 Armários Locados
+
+  %table#users
+    %thead
+      %tr
+        %th Armario
+        %th Usuario
+        %th Armario
+        %th Usuario
+    %tbody
+      - @lockers.each do |locker|
+        - if (locker.code[1]+locker.code[2]).to_i % 2 == 1
+          %tr
+        %td= locker.code
+        %td= locker.owner

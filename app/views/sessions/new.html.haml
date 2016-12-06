@@ -1,0 +1,21 @@
+.m-content
+  %h1 Nova Sessão
+
+  .input-wrap
+    =form_tag login_path :method => :post do
+      = label :session, :email, "Email"
+      = text_field :session, :email
+
+      %br
+
+      = label :session, :password, "Senha"
+      = password_field :session, :password
+
+      %br
+      
+      %span.red
+        = flash[:warning]
+      
+      %br
+      = submit_tag 'Mostrar Usuário'
+      = link_to 'Novo Usuário', new_user_path, class: 'button'

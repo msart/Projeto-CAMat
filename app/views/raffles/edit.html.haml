@@ -1,0 +1,19 @@
+.m-content
+  %h1 Editar Dados
+
+  .input-wrap
+    = form_tag raffle_path(@raffle.id), :method => :put do
+
+      = label :raffle, :start, 'Início das Inscrições'
+      = text_field :raffle, :start
+
+      %br
+
+      = label :raffle, :finish, 'Fim das Inscrições'
+      = text_field :raffle, :finish
+
+      %br
+      %br
+
+      = submit_tag 'Atualizar Dados do Sorteio'
+      = link_to 'Cancelar', raffle_path(params[:id]), class: 'button'

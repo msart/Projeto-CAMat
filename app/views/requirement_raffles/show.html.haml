@@ -1,0 +1,32 @@
+.m-content
+  %h2 Detalhes do Sorteio
+
+  %ul#details
+    %li
+      Início do período de inscrições:
+      = @raffle.start
+    %li
+      Fim do período de inscrições:
+      = @raffle.finish
+    %li
+      Armário:
+      = @raffle.locker
+  %table#users
+    %thead
+      %tr
+        %th Usuário
+        %th Email
+        %th Telefone
+        %th Número USP
+    %tbody
+      - if @users != nil
+        - @users.each do |user|
+          %tr
+            %td= link_to "#{user.nome}", user_path(user.id)
+            %td= user.email
+            %td= user.telefone
+            %td= user.documento
+
+.user-options
+  = link_to 'Excluir Sorteio', requirement_raffle_path(@raffle), :method => :delete, :confirm => 'Você tem certeza?', class: 'button'
+  = link_to 'Voltar às Inscrições Atuais', requirement_raffles_path, class: 'button'

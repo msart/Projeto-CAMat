@@ -1,0 +1,17 @@
+- if !logged_in?
+  .header
+    .h-w
+      %h1.m-message CONSIGA UM ARMÁRIO PARA GUARDAR SUAS COISAS NO IME!
+      %ul.m-b
+        %li.btn1
+          = link_to "INSCREVER-SE", new_user_path
+        %li.btn2
+          = link_to "ENTRAR", login_path
+.m-content
+  - if Feed.find_by_id(1) != nil
+    .m-feed
+      %h1 Notícias
+      %p
+        - (Feed.find_by_id(1).msg.split("\n")).each do |msg|
+          #{msg}
+          %br

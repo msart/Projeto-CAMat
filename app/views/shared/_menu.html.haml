@@ -1,0 +1,47 @@
+%ul
+  %li
+    = link_to 'FEED DE NOTÍCIAS', home_path
+  %li
+    = link_to 'DADOS DO USUÁRIO', user_path(current_user.id)
+  - if current_user == User.find(session[:user_id]) || is_admin?
+    - if is_admin?
+      %li
+        = link_to 'LISTA DE USUÁRIOS', users_path
+      - if Feed.find_by_id(1) != nil
+        %li
+          = link_to 'ATUALIZAR FEED', edit_feed_path(Feed.find_by_id(1))
+      - else
+        %li
+          = link_to 'ATUALIZAR FEED', msg_path
+      %li
+        = link_to 'INICIAR PERÍODO DE INSCRIÇÃO', edit_raffle_path(Raffle.find_by_id(1))
+      - if is_raffle_period?
+        %li
+          = link_to 'DETALHES DO SORTEIO', raffle_path(1)
+      - else
+        %li
+          = link_to 'SORTEIOS ATIVOS', requirement_raffles_path
+      %li
+        = link_to 'ARMÁRIOS LOCADOS', lockers_path
+    - if !is_raffle_period?
+      - if User.find(session[:user_id]).locker == '-'
+        - if !have_requirement?
+          %li
+            = link_to 'REQUERIR ARMÁRIO', locker_occupation_path
+        - else
+          %li
+            = link_to 'CANCELAR REQUERIMENTO', requirementcancel_path
+      - else
+        %li
+          = link_to 'ABANDONAR ARMÁRIO', account_path, method: :delete, confirm: 'Você tem certeza?'
+    - if is_raffle_period?
+      - if is_subscribed?
+        %li
+          = link_to 'ABANDONAR INSCRIÇÃO', unsubscribe_path, method: :post
+      - else
+        %li
+          = link_to 'INSCREVER-SE', subscribe_path, method: :post
+  - else
+    - if is_admin?
+      %li
+        = link_to 'VOLTAR AOS USUÁRIOS', users_path
