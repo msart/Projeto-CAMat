@@ -14,7 +14,7 @@
         %th Preço
     %tbody
       -@lockers.each do |locker|
-        -if (locker.code[1]+locker.code[2]).to_i % 4 == 1
+        -if locker.number % 4 == 1
           %tr
         -if locker.free?
           %td
@@ -24,4 +24,4 @@
           %td
             %span.red
               = locker.code
-        %td R$#{locker.price},00
+        %td #{locker.price}
